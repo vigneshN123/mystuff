@@ -1,0 +1,20 @@
+{%- for vrf in vrf_name %}
+vrf definition {{vrf}}
+rd 100:{{vrf_name.index(vrf)+1}}
+{%- if ipv4 == True %}
+address-family ipv4
+  route-target export 100:{{vrf_name.index(vrf)+1}}
+  route-target import 100:{{vrf_name.index(vrf)+1}}
+exit-address-family
+{% endif %}
+{%- if ipv6 == True %}
+ address-family ipv6
+  route-target export 100:{{vrf_name.index(vrf)+1}}
+  route-target import 100:{{vrf_name.index(vrf)+1}}
+ exit-address-family
+{% endif %}
+{% endfor %}
+
+
+
+
