@@ -1,0 +1,340 @@
+CCCCCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/aurcsc30-confg]
+
+aurcsc30#terminal width 511
+aurcsc30#terminal length 0
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+aurcsc30(config)#
+aurcsc30(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+aurcsc30(config)#
+aurcsc30(config)#
+aurcsc30(config)#
+aurcsc30(config)#
+aurcsc30(config)#write mem
+                  ^
+% Invalid input detected at '^' marker.
+
+aurcsc30(config)#
+aurcsc30(config)#
+aurcsc30(config)#end
+aurcsc30#
+aurcsc30#exit
+CCCCCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/aurcsc30-confg]
+aurcsc30#terminal width 511
+aurcsc30#terminal length 0
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+aurcsc30(config)#
+aurcsc30(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+aurcsc30(config)#end
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#
+aurcsc30#write mem
+Building configuration...
+[OK]
+aurcsc30#
+aurcsc30#exit
+CCCCCCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/aurcsc01-confg]
+
+aurcsc01#terminal width 511
+aurcsc01#terminal length 0
+aurcsc01#
+aurcsc01#
+aurcsc01#
+aurcsc01#
+aurcsc01#
+aurcsc01#
+aurcsc01#
+aurcsc01#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+aurcsc01(config)#
+aurcsc01(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+aurcsc01(config)#end
+aurcsc01#
+aurcsc01#
+aurcsc01#
+aurcsc01#
+aurcsc01#write mem
+Building configuration...
+[OK]
+aurcsc01#
+aurcsc01#exit
+CCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/aurcsc06-confg]
+
+aurcsc06#terminal width 511
+aurcsc06#terminal length 0
+aurcsc06#
+aurcsc06#
+aurcsc06#
+aurcsc06#
+aurcsc06#
+aurcsc06#
+aurcsc06#
+aurcsc06#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+aurcsc06(config)#
+aurcsc06(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+Invalid encryption type: 9
+
+aurcsc06(config)#end
+aurcsc06#
+aurcsc06#
+aurcsc06#
+aurcsc06#
+aurcsc06#write mem
+Building configuration...
+
+[OK]
+aurcsc06#
+aurcsc06#exit
+CCCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/aurcsc07-confg]
+C
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED.
+aurcsc07#terminal width 511
+aurcsc07#terminal length 0
+aurcsc07#
+aurcsc07#
+aurcsc07#
+aurcsc07#
+aurcsc07#
+aurcsc07#
+aurcsc07#
+aurcsc07#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+aurcsc07(config)#
+aurcsc07(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+aurcsc07(config)#end
+aurcsc07#
+aurcsc07#
+aurcsc07#
+aurcsc07#
+aurcsc07#write mem
+Building configuration...
+[OK]
+aurcsc07#
+aurcsc07#exit
+CCCCCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/aurcsc31-confg]
+
+
+
+aurcsc31#terminal width 511
+aurcsc31#terminal length 0
+aurcsc31#
+aurcsc31#
+aurcsc31#
+aurcsc31#
+aurcsc31#
+aurcsc31#
+aurcsc31#
+aurcsc31#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+aurcsc31(config)#
+aurcsc31(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+aurcsc31(config)#end
+aurcsc31#
+aurcsc31#
+aurcsc31#
+aurcsc31#
+aurcsc31#write mem
+Building configuration...
+[OK]
+aurcsc31#
+aurcsc31#exit
+ UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/VailSYFAurora-confg] 
+
+
+VailSYFAurora#terminal width 511
+VailSYFAurora#terminal length 0
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+VailSYFAurora(config)#
+VailSYFAurora(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+VailSYFAurora(config)#end
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#
+VailSYFAurora#write mem
+Building configuration...
+[OK]
+VailSYFAurora#
+VailSYFAurora#exit
+CCCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/vailsyfphoenix01-confg]
+
+
+
+vailsyfphoenix01#terminal width 511
+vailsyfphoenix01#terminal length 0
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+vailsyfphoenix01(config)#
+vailsyfphoenix01(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+vailsyfphoenix01(config)#end
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#
+vailsyfphoenix01#write mem
+Building configuration...
+[OK]
+vailsyfphoenix01#
+vailsyfphoenix01#exit
+CCCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 172.25.129.230
+Destination filename [/config/au/vailsyfphoenix02-confg]
+
+
+
+vailsyfphoenix02#terminal width 511
+vailsyfphoenix02#terminal length 0
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+vailsyfphoenix02(config)#
+vailsyfphoenix02(config)#enable secret 9 $9$cpyZw9c77lARJ.$v6LxswScdpEybzpHn8FRbOFwAAO/Xy623J.TCT5DByU
+vailsyfphoenix02(config)#end
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#
+vailsyfphoenix02#write mem
+Building configuration...
+[OK]
+vailsyfphoenix02#
+vailsyfphoenix02#exit
