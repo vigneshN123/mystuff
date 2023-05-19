@@ -1,0 +1,167 @@
+###########################################
+## Southfield(SF) Networks
+###########################################
+##### SF Public Subnets ####
+0377	sf-ccs-200-3rd			4.4.194.0/27		(SF CCS 200 3rd PCI)
+****					4.15.104.168/30		(CCS 100 DIA/Genesys pub xovr SF 10G)
+****					4.53.74.132/30		(CCS ENS DIA 100 Cell SF 1G)
+0300	sfl3ensalt			4.53.12.32/27		(SF L3 ENS Alternate Voice subnet - sfjsw1)
+0078	sfl3enshsip1			8.17.202.0/24		(SF Level3 ENS HSIP 1) CCS DIA
+0056	sfgenesys			8.17.203.0/28		(SF sfgenesys)
+0063	sfccsnes            		8.17.203.16/28    	(Level 3 NES Internet)
+0077	sfl3ensipvpn1			8.27.23.0/24		(SF Level3 IP VPN MPLS 1) CCS MPLS PCI)
+0277	sf-ccs-200-2nd			8.40.65.0/24		(SF Centurylink IP VPN MPLS 1) CCS MPLS PCI )
+0477	sf-ccs-500			8.226.3.0/24		(SF sf-ccs-500 PCI)
+0060	sffw1egress1			63.209.137.0/26		(SF vailpublic subnet Internet sffw1egress1)
+0061	sffw2egress1			63.209.137.64/26	(SF vailpublic subnet Internet sffw2egress1)
+0098	sfvailpub 			63.209.137.128/26	(SF Vail Public - sf2ffw-fw1 - NO NAT)
+0083	sfl3testa			63.209.140.0/25		(SF Level3 TEST A-Cell - sf2ffw-fw2 - NO NAT)
+0108	sfpersyint			63.209.140.128/28 	(SF Level3 Persephony Vail Voice sf2ffw-fw2 NATed 63.209.137.93 PCI)
+0112	sfpersydevvoice 		63.209.140.160/29	(SF Persy Dev voice  sf2ffw-fw1 NATed  63.209.137.27 Partially NAT PCI)
+0594	sffreeclimbuat			63.209.140.168/29
+0096 	sfl3sharedb 			63.209.141.0/26		(SF shared 50B - sf2ffw-fw1 - NO NAT)
+0081	sfl3shareda			63.209.141.64/26	(SF shared 50A - sf2ffw-fw2 - NO NAT)
+0079	sfwhistle 			63.209.141.192/27	(SF Whistle - sf2ffw-fw1 - NO NAT)
+0106	sfpersyprdvoice			63.209.141.224/28	(SF Level 3 Persephony Voice Network - sf2ffw-fw2 NATed 63.209.137.92 PCI)
+0021	sfl3hyadataa			64.211.41.224/27	(SF SFL3HYADATAA)
+0022	sfl3hyavoicea			64.211.59.32/27		(SF SFL3HYAVOICEA)
+					67.17.211.176/30	(SF sfrjun01 LAG uplink)
+					100.65.255.104/30	(SF PCH2-ECKOH )
+					100.65.253.0/24		Level-3-CCS-Direct-Connect-Customers
+					100.65.254.0/24		Level-3-CCS-Direct-Connect-Customers
+					100.65.255.0/24		Level-3-CCS-Direct-Connect-Customers
+
+##### SF Private Subnets ####
+****	sfprodworkers pod		10.64.0.0/16		(SF Vail K8s prod pod subnet)
+****	sftestworkers pod 		10.66.0.0/16		(SF Vail K8s test pod)
+****	sfdevworkers pod		10.67.0.0/16		(SF Vail K8s dev pod subnet)
+****	sfppciworkers pod		10.68.0.0/16		(SF Vail K8s prod pci pod subnet)
+****	sfprodworkers vip		10.73.0.0/20		(SF Vail K8s prod vip subnet)
+****	sftestworkers vip 		10.73.16.0/20		(SF Vail K8s test vip)
+****	sfdevworkers vip		10.73.32.0/20		(SF Vail K8s dev vip subnet)
+****	sfppciworkers vip		10.73.64.0/20		(SF Vail K8s prod pci vip subnet)
+
+0049    sfStateFarmSimprod   		10.122.249.128/26       (SF StateFarm NLBank Simprod subnet)
+0047    sfStateFarmProd			10.124.249.0/26       	(SF StateFarm NLBank Prod subnet)
+					10.1.101.0/24		(SF Meijer Advertisement)
+					10.101.101.0/24		(SF Meijer Advertisement)
+					10.8.4.18/30		(SF Meijer x-over )
+0115	sfjsw0-sfsyfvzvoice		10.142.200.32/27	(SYF SIP VZ Voice subnet in SF)
+
+0005	sfbackbone			172.20.1.0/24
+0007	sfibgp				172.20.2.0/24
+0006	sfrouterlink			172.20.3.0/24
+					172.20.4.0/24		(SF Network devices loopback ip)
+					172.20.4.10/32
+					172.20.4.11/32
+					172.20.4.12/32
+					172.20.4.13/32
+					172.20.4.14/32
+					172.20.4.15/32
+					172.20.4.16/32
+					172.20.4.17/32
+					172.20.4.18/32
+					172.20.4.19/32
+					172.20.4.2/32
+					172.20.4.20/32
+					172.20.4.30/32
+					172.20.4.31/32
+					172.20.4.40/32
+					172.20.4.55/32
+					172.20.4.56/32
+0008	sfpbr				172.20.8.0/24		(SF Policy Based Routing)
+
+0015	sfbackbone2			172.20.15.0/24  (sf backbone vlan)
+0103    sfjsw40-sfrcore01               172.20.15.220/30  (sfjsw40-sfrcore01)
+0104    sfjsw41-sfrcore02               172.20.15.224/30  (sfjsw41-sfrcore02)
+0105	sfrccs-xover-1                  172.20.15.152/30  (sfrccs-xover-1)
+0107    sfrccs-xover-2                  172.20.15.156/30  (sfrccs-xover-2)
+0108	sfcore01-VailSFSouthfield	172.20.15.160/30  (sfcore01-VailSFSouthfield)
+0109	sfcore02-VailSFSouthfield	172.20.15.164/30  (sfcore02-VailSFSouthfield)
+ 					172.20.15.132/30
+ 					172.20.15.136/30
+ 					172.20.15.148/30
+ 					172.20.15.156/30
+ 					172.20.15.164/30
+ 					172.20.15.172/30
+ 					172.20.15.180/30
+ 					172.20.15.224/30
+					172.20.15.128/30
+					172.20.15.140/30
+					172.20.15.144/30
+					172.20.15.152/30
+					172.20.15.160/30
+					172.20.15.168/30
+					172.20.15.176/30
+					172.20.15.220/30
+2501	sfucvpn2-gi0-1-inside	       	172.20.15.228/30 	(sfcuvpn2 inside interface (TEMP))
+0029	sfprodworkers			172.20.20.0/24		(SF K8s prod workers - sf2ffw-fw2-NAT - 63.209.137.81)
+0030	sftestworkers			172.20.21.0/24		(SF Vail K8s test workers - sf2ffw-fw2-NAT 63.209.137.81)
+0031	sfdevworkers			172.20.22.0/24		(SF Vail K8s dev workers - sf2ffw-fw1-NAT IP 63.209.137.61)
+0032	sfppciworkers			172.20.32.0/24		(SF Vail K8s prod pci subnet - sf2ffw-fw1 - NATed 63.209.137.60 PCI)
+0033	sfppcictrls			172.20.62.0/28		(SF Vail K8s prod pci controllers subnet - sf2ffw-fw1 -NATed 63.209.137.60 PCI)
+0034	sfprodctrls			172.20.62.32/28		(SF Vail K8s prod controllers - sf2ffw-fw2 - NATed 63.209.137.81)
+0039	sftestctrls			172.20.62.48/28		(SF Vail K8s test controllers - sf2ffw-fw2 - NATed 63.209.137.81)
+0040	sfdevctrls			172.20.62.64/28		(SF Vail K8s dev controllers - sf2ffw-fw1 -NATed 63.209.137.61)
+					172.20.100.0/30
+0503	sfjsw1-core01			172.20.100.24/29	(SF Vail pci xovr Yrd VMSP-SYF  sfjsw1 to core01)
+0504	sfjsw1-core02			172.20.100.32/29	(SF Vail pci xovr Yrd VMSP-SYF  sfjsw1 to core02)
+564					172.20.102.0/24		(sf-new-pci-infra-core-subnets-range)
+0102	sf2jcore-sfjsw4			172.20.102.32/30	(sf2jcore-sfjsw4)
+2000	vlan-intf-2000			172.20.102.36/30	(sf2jcore-sf2ffw-root)
+2001	vlan-intf-2001			172.20.102.40/30	(sf2jcore-sf2ffw-fw1 )
+2002	vlan-intf-2002			172.20.102.44/30	(sf2jcore-sf2ffw-fw2 )
+2004	sfucvpn2-outside-intf		172.20.102.48/30        (sfucvpn2-outside-sf2jedge203-ge-0/1)
+2005	sfpavpn1-Inside			172.20.102.52/30	(sfpavpn1-Inside)
+0500	sfjsw4-sffcore0-root		172.20.102.56/30	(sfjsw4-sffcore0-root)
+0107	sfpersyloadtest			172.20.104.0/28		(SF Persephony loadtest external link simulation)
+0109	sfpersytest			172.20.104.48/28	(SF Persephony loadtest - sf2ffw-fw1 - NAT IP 63.209.137.27)
+0856	sfpxewinadm			172.20.107.128/28	(SF Windows PXE - sf2ffw-fw2 - NAT IP 63.209.137.91)
+0036	sfvmsptest			172.20.108.64/26	(SF Vail SYF VMSP test - sf2ffw-fw1 - NO NAT)
+0155	sftestvlan-TEMP			172.20.110.0/28		(SF test vlan for K8s BGP )
+0929	sf-ccs-vxml			172.20.112.0/24		(SF Vail PCI srvc Yrd CCS 200C cell)
+930	sf-ccs-windows			172.20.113.0/24		(SF Vail PCI CCS  sf-ccs200-win)
+0019	sfsqldb				172.20.114.0/24		(SF Dedicated Database - sf2ffw-fw2 - NO NAT)
+0119	sfmongodb			172.20.115.0/27		(SF MongoDB subnet - sf2ffw-fw1 - NO NAT)
+2003	sf-edge-sw-mgmt			172.20.123.0/24		(SF 123 DC switches management VLAN)
+2003	fortimgmt			172.20.124.0/28		(SF 123 DC fortigate devices management VLAN)
+0100	sfadmina			172.20.129.0/25		(SF Admin A - sf2ffw-fw1 - NAT IP 63.209.137.10)
+0200	sfadminb			172.20.129.128/25	(SF Admin servers - sf2ffw-fw2 - NAT IP 63.209.137.125)
+0110	sfutilitya			172.20.130.0/25		(SF Utility A servers - sf2ffw-fw1 - NAT IP 63.209.137.20)
+0210	sfutilityb			172.20.130.128/25	(SF Utility B servers - sf2ffw-fw2 - NAT IP 63.209.137.90)
+0120	sfjumpa				172.20.131.0/25		(SF Jumpstart/Kickstart - sf2ffw-fw1 - NAT IP 63.209.137.21)
+0133	sfvpngrp1			172.20.133.0/24 	(IPSec VPN remote user admin user, never used)
+0134	sf-asa-anyconnect		172.20.134.0/24 	(AnyConnect VPN remote user, never used)
+0111	sfloma				172.20.135.0/24		(SF 1st LOM - sf2ffw-fw1 - NO NAT)
+0211	sflomb				172.20.136.0/24		(SF 2nd LOM - sf2ffw-fw2 - NO NAT)
+0137	sflomc				172.20.137.0/24		(SF 3rd LOM - sf2ffw-fw2 - NO NAT)
+0113	sfmon				172.20.142.16/28	(SF monitoring subnet - sf2ffw-fw2 - NAT IP 63.209.137.90)
+0023	sfl3hyavmmgmta			172.20.142.240/28	(SF SFL3HYAVMMGMTA)
+0310	sfgea				172.20.143.0/25		(SF Synchrony Financial/SYF - sf2ffw-fw1 - NO NAT PCI)
+0430	sfstatefarmb			172.20.145.128/25	(SF State Farm B - sf2ffw-fw2 - NAT IP 63.209.137.82 PCI)
+0340	sfcallminera			172.20.147.0/25		(SF Callminer - sf2ffw-fw1 - NAT IP 63.209.137.35 PCI)
+0810	sfbackup			172.20.148.0/25 	(SF Backup Network - Note it is 0016 on the local switch)
+0350	sfsecure-util-a			172.20.149.0/25		(SF secure-util A cell - sf2ffw-fw1 - NO NAT PCI)
+0450	sfsecure-util-b			172.20.149.128/25	(SF secure-util B cell - sf2ffw-fw2 - NAT IP 63.209.137.83 PCI)
+0351	sfsecuregw			172.20.150.0/28		(SF secure gateway/jumpbox - sf2ffw-fw1 - NO NAT PCI)
+0352	sfsecvmmgmt			172.20.150.16/29	(SF PCI VM host - sf2ffw-fw2 - NO NAT)
+0354	sfsecdata			172.20.150.24/29	(SF PCI secure data manipulation - sf2ffw-fw2 - NO NAT)
+0356	sfsecutil			172.20.150.32/28	(SF PCI Utility Network - sf2ffw-fw1 - NO NAT)
+0118	sfids				172.20.150.64/28 	(SF IDS subnet - sf2ffw-fw2- NAT IP 63.209.137.83 PCI)
+0122	sfntp                           172.20.150.80/29        (SF ntp subnet - sf2ffw-fw1 NATed - 63.209.137.21)
+0460	sfdeva				172.20.152.0/24		(SF Dev Network A cell - sf2ffw-fw1 - NAT IP 63.209.137.59)
+0303	sfvmmgmt			172.20.153.0/24		(SF Virtual Machine Mgmt - sf2ffw-fw1 - NO NAT)
+**	sf-statefarm-nlbank-nat-subnet2	172.20.155.0/24		(SF StateFarm NLBank Data NAT subnet2 destination)
+0048	sfStateFarmN2V			172.20.156.0/28		(SF StateFarm NLBank To Vail - sf2ffw-fw1 - NO NAT)
+0046	sfStateFarmP2V			172.20.156.16/28	(SF StateFarm NLBank Prod To Vail - sf2ffw-fw1 - NO NAT)
+0045	sfaiovrf			172.20.156.32/28 	(SF AIO/Cricket VRF - sf2ffw-fw2 - NO NAT)
+**      sf-statefarm-nlbank-nat-subnet4 172.20.160.0/24         (SF StateFarm NLBank Data NAT subnet4 destination)
+0363	sfcricketa			172.20.163.0/25		(SF cricket cell A - sf2ffw-fw2 - NO NAT PCI)
+0366    sf-convergys-xover            	172.20.164.0/30         (SF to convergys crossover connection from the core)
+0171	sfprodk8sutil			172.20.171.0/24		(SF K8s utility subnet : PROD - sf2ffw-fw2 - NATed 63.209.137.81)
+0172	sftestk8sutil			172.20.172.0/24		(SF K8s utility subnet : TEST - sf2ffw-fw2 -NATed 63.209.137.81)
+0173	sfdevk8sutil			172.20.173.0/24		(SF K8s utility subnet : DEV - sf2ffw-fw1 - NO NAT)
+0174	sfppcik8sutil			172.20.174.0/24		(SF K8s utility subnet : PROD-PCI - sf2ffw-fw1 - NO NAT PCI)
+
+XXXX	sf-iscsi-san			172.20.250.0/24		(SF iSCSI SAN subnet: NO NAT)
+

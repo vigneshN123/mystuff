@@ -1,0 +1,2 @@
+location,customer,ticket_info,cust_rtp_ip_list,ccs1_sip,ccs2_sip,cust_sip_ip_list,vail_ip_list
+sf,vrnt,FW-1234,122.123.124.0/24,yes,no,"122.123.124.1/32,122.123.124.2/32",8.27.23.1/32
