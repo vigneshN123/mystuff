@@ -1,0 +1,3 @@
+delete system archival
+set system root-authentication encrypted-password "$6$X8uSOY3R$CIAWrIjI85C6RQvcBlMZ8a1u13EawZlUSpjJAoizkzjFmwjRcoO2TPvMtNk7KONnGZjlWHdmNpKgYNm0Bpf7W."
+ 
