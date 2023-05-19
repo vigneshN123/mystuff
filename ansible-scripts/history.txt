@@ -1,0 +1,1000 @@
+    4  ls -ltr
+    5  less commands.txt 
+    6        more commands.txt 
+    7  ls -ltr
+    8  cd scripts/
+    9  ls -ltr
+   10  ../py-scripts-v3/
+   11  cd ../py-scripts-v3/
+   12  ls -ltr
+   13  cd ..
+   14  source py-scripts-v3/bin/activate
+   15  cd scripts/
+   16  ls -ltr
+   17  cp sf_edge_switches.txt au_edge_switches.txt
+   18  ls -ltr
+   19  vi au_edge_switches.txt 
+   20  vi apply_switch_conf
+   21  vi apply_switch_conf2.py 
+   22  vi commands.txt 
+   23  less commands.txt 
+   24  more commands.txt 
+   25  vi commands.txt 
+   26  more commands.txt 
+   27  ls -tr
+   28  ls -ltr
+   29  more apply_switch_conf2.py 
+   30  vi apply_switch_conf2.py 
+   31  more au_edge_switches.txt 
+   32  python apply_switch_conf2.py
+   33  deactivate 
+   34  history
+   35  source py-scripts-v2/bin/activate
+   36  cd .. 
+   37  source py-scripts-v2/bin/activate
+   38  cd scripts/
+   39  python apply_switch_conf2.py
+   40      
+   41  ls -ltr
+   42  cp au_edge_switches.txt au_lom_switches.txt
+   43  ls -ltr
+   44  vi au_lom_switches.txt 
+   45  vi apply_switch_conf2.py 
+   46  python apply_switch_conf2.py 
+   47  ls -ltr
+   48  history 
+   49  source py-scripts-v2/bin/activate
+   50  ls -ltr
+   51  cd scripts/
+   52  ls -ltr
+   53  vi apply_switch_conf2.py 
+   54  cp sf_edge_switches.txt sf_switches.txt
+   55  vi apply_switch_conf2.py 
+   56  vi sf_switches.txt 
+   57  nslookup sfjsw0
+   58  nslookup sfjsw1
+   59  nslookup sfjsw2
+   60  nslookup sfjsw3
+   61  ssh sfjsw3
+   62  ssh sfjsw4
+   63  ssh sfjsw5
+   64  ls -ltr
+   65  less commands.txt 
+   66  python apply_switch_conf2.py 
+   67  ssh sfjsr01
+   68  vi sf_switches.txt 
+   69  python apply_switch_conf2.py 
+   70  ssh sf2jcore0
+   71  source py-scripts-v2/bin/activate
+   72  cd scripts/
+   73  pwd
+   74  ls -ltr
+   75  more sf_sw_log.txt 
+   76                  
+   77  clear
+   78  ls -ltr
+   79  cp sf_switches.txt au_switches.txt
+   80  vi au_switches.txt 
+   81  vi apply_switch_conf2.py 
+   82  python apply_switch_conf2.py 
+   83  vi commands.txt 
+   84  source py-scripts-v2/bin/activate
+   85  cd scripts/
+   86  ls -ltr
+   87  vi apply_switch_conf2.py 
+   88  cp apply_switch_conf2.py apply_cisco_conf.py
+   89  ls -ltr
+   90  vi apply_cisco_conf.py 
+   91  vi au_cisco.txt
+   92  vi apply_cisco_conf.py 
+   93  cp commands.txt commands_cisco.txt
+   94  more commands_cisco.txt 
+   95  vi commands_cisco.txt 
+   96  more au_cisco.txt 
+   97  more apply_cisco_conf.py 
+   98  python apply_cisco_conf.py 
+   99      
+  100  more au_cisco_log.txt 
+  101  vi commands_cisco.txt 
+  102  python apply_cisco_conf.py 
+  103  more au_cisco_log.txt 
+  104  vi au_cisco.txt 
+  105  python apply_cisco_conf.py 
+  106  more au_cisco_log.txt 
+  107   
+  108  source py-scripts-v2/bin/activate
+  109  ls -ltr
+  110  cd scripts/
+  111  ls -ltr
+  112  vi apply_cisco_conf.py 
+  113  cp au_cisco.txt sf_cisco.txt
+  114  ls -ltr
+  115  vi sf_cisco.txt 
+  116  vi apply_cisco_conf.py 
+  117  vi sf_cisco.txt 
+  118  python apply_cisco_conf.py 
+  119  ssh sfrcsc06 
+  120  ls -ltr
+  121  more sf_cisco_log.txt 
+  122  source py-scripts-v2/bin/activate
+  123  ls -ltr
+  124  cd scripts/
+  125  python -version
+  126  python --version
+  127  cat /proc/version
+  128  sudo yum upgrade python3
+  129  pwd
+  130  ls -ltr
+  131  mkdir ansible-venv
+  132  ls -ltr
+  133  rm -f ansible-venv/
+  134  rm --help
+  135  rm -df ansible-venv/
+  136  ls -ltr
+  137  python -m venv ansible_venv
+  138  ls -ltr
+  139  source ansible_venv/bin/activate
+  140  yum upgrade python3
+  141  sudo yum upgrade python3
+  142  deactivate 
+  143  python -V
+  144  source ansible_venv/bin/activate
+  145  pip install netmiko
+  146  pip install --upgrade pip 
+  147  pip install junos-eznc
+  148  pip install ncclient
+  149  pip install ansible
+  150    
+  151  vi junos_install.yml
+  152  ls -ltr
+  153  mkdir junos_install.yml
+  154  mkdir ansible_scripts
+  155  ls -ltr
+  156  mv junos_install.yml ansible_scripts/
+  157  ls -ltr
+  158  cd ansible_scripts/
+  159  ls -ltr
+  160  vi junos_install.yml 
+  161  mkdir sw_images
+  162  ls -ltr
+  163  rm -fd sw_images/
+  164  ls -ltr
+  165  cd ..
+  166  mkdir sw_images
+  167  ls -ltr
+  168  cd sw_images/
+  169  pwd
+  170  ifconfig
+  171  ls -ltr
+  172  cd ..
+  173  ls -ltr
+  174  cp jinstall-ex-4300-21.2R3.8-signed.tgz sw_images/
+  175  cd sw_images/
+  176  ls -ltr
+  177  chmod 777 *
+  178  ls -ltr
+  179  cd .. 
+  180  cd ansible_scripts/
+  181  ls -ltr
+  182  vi junos_install.yml 
+  183  ansible-inventory 
+  184  ansible-inventory --list
+  185  vi hosts.ini
+  186  which python
+  187  vi hosts.ini
+  188  ansible-inventory --list
+  189  ansible-inventory 
+  190  ansible-inventory --host
+  191  ansible-inventory --graph
+  192  ls -ltr
+  193  vi hosts.ini 
+  194  which ansible
+  195  ansible-config 
+  196  ansible-config --version
+  197  vi ansible.cfg
+  198  ls 
+  199  ls -ltr
+  200  pwd
+  201  vi ansible.cfg
+  202  ls -ltr
+  203  ansible-inventory --list
+  204  vi ansible.cfg
+  205  ssh vigneshn@hostname -p 830 -s netconf
+  206  ssh vigneshn@au2jedge113 -p 830 -s netconf
+  207  vi test_script.yml
+  208  ansible-playbook test_script.yml 
+  209  ls -ltr
+  210  vi junos_install.yml 
+  211  ansible-playbook junos_install.yml 
+  212  vi junos_install.yml 
+  213  ansible-playbook junos_install.yml 
+  214  vi junos_install.yml 
+  215  pip install Juniper.junos
+  216  ansible-galaxy install Juniper.junos
+  217  vi junos_install.yml 
+  218  ansible-playbook junos_install.yml 
+  219  vi junos_install.yml 
+  220  more junos_install.yml 
+  221  vi junos_install-1.yml 
+  222  ansible-playbook junos_install-1.yml 
+  223  vi junos_install-1.yml 
+  224  ansible-playbook junos_install-1.yml 
+  225  pip install junos_install_os
+  226  vi junos_install-1.yml 
+  227  vi junos_install-2.yml
+  228  ansible-playbook junos_install-2.yml 
+  229  cp junos_install-2.yml junos_install_2.yml
+  230  ls -ltr
+  231  ansible-playbook junos_install_2.yml 
+  232  vi junos_install_2.yml
+  233  ansible-playbook junos_install_2.yml 
+  234  vi junos_install_2.yml
+  235  ansible-playbook junos_install_2.yml 
+  236  vi junos_install_2.yml
+  237  ansible-playbook junos_install_2.yml 
+  238  vi junos_install_2.yml
+  239  :
+  240  ansible-playbook junos_install_2.yml 
+  241  vi junos_install_2.yml
+  242  vi junos_install-2.yml
+  243  ansible-playbook junos_install-2.yml 
+  244  vi junos_install-2.yml
+  245  ansible-galaxy install juniper.device
+  246  ansible-galaxy install juniper.device.software
+  247  ansible-galaxy install juniper
+  248  ansible-galaxy collection install juniper.device
+  249  ansible-playbook junos_install-2.yml 
+  250  ansible-playbook  -u vigneshn -k junos_install-2.yml 
+  251  4
+  252  ls -ltr
+  253  vi junos_install-1.yml 
+  254  vi junos_install.yml 
+  255  ansible-playbook  junos_install.yml 
+  256  vi junos_install.yml 
+  257  pip install python-dev libxml2-dev libxslt-dev libssl-dev libffi-dev
+  258  pip install python-de
+  259  pip install python-dev
+  260  yum install python-dev libxml2-dev libxslt-dev libssl-dev libffi-dev
+  261  sudo yum install python-dev libxml2-dev libxslt-dev libssl-dev libffi-dev
+  262  more junos_install-2.yml 
+  263  deactivate 
+  264  ls -ltr
+  265  cd ..
+  266  python -V
+  267  python3 -V
+  268  python39 -V
+  269  python3.9 -V
+  270  python3 -V
+  271  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9
+  272  which python
+  273  ls /usr/bin/python
+  274  ls /usr/bin/python3
+  275  ls /usr/bin/python3.9
+  276  ls /usr/bin/python*
+  277  sudo update-alternatives --config python
+  278  history 
+  279  python3.9 -m venv ansible_venv1
+  280  ls -ltr
+  281  source ansible_venv1/bin/activate
+  282  pip install ansible
+  283  python -m pip install --upgrade pip
+  284  ansible-galaxy install juniper.junos
+  285  ansible-galaxy collection install juniper.device
+  286  cd ansible_scripts/
+  287  ls -ltr
+  288  ansible-inventory --list
+  289  ansible-playbook junos_install-2.yml 
+  290  ansible-playbook junos_install-2.yml -vvv
+  291  pip install junos-eznc
+  292  ansible-playbook junos_install-2.yml -vvv
+  293  ansible-playbook junos_install-2.yml 
+  294  pip install xmltodict
+  295  ansible-playbook junos_install-2.yml 
+  296  ansible-playbook junos_install-2.yml -vvv
+  297  ls -ltr
+  298  vi hosts.ini 
+  299  ansible-playbook junos_install-2.yml -vvv
+  300  pip list
+  301  pip install ncclient
+  302  pip list
+  303  ansible-playbook junos_install-2.yml 
+  304  pip install jxmlease
+  305  ansible-playbook junos_install-2.yml 
+  306  ansible-playbook -u vigneshn -k junos_install-2.yml 
+  307  ansible-playbook junos_install-2.yml 
+  308  more junos_install-2.yml 
+  309  ansible --version
+  310  ansible-playbook junos_install-2.yml -vvv
+  311  ls -ltr
+  312  vi junos_install.yml 
+  313  ansible-playbook junos_install.yml 
+  314  cd ~
+  315  ls -ltr
+  316  cd ansible_scripts
+  317  vi junos_install.yml 
+  318  ansible-playbook junos_install.yml 
+  319  ls -ltr
+  320  cd ansible_scripts/
+  321  ls -ltr
+  322  more junos_install.yml 
+  323             who
+  324  pwd
+  325  ls -ltr
+  326  cd ansible_venv1
+  327  python -V
+  328  ansible --version
+  329  cd ..
+  330  source ansible_venv1/
+  331  source ansible_venv1/bin/activate
+  332  pwd
+  333  python -V
+  334  ansible --version
+  335  ls -lart
+  336  cd .ansible/collections/
+  337  ls -ltr
+  338  cd ansible_collections/
+  339  ls -ltr
+  340  ansible-galaxy collections list 
+  341  ansible-galaxy collection list 
+  342  ls -al
+  343  tree -C
+  344  cd ~
+  345  cd ansible_scripts/
+  346  ls -ltr
+  347  vi simple_ping.yml
+  348  ansible-inventory view
+  349  ansible-inventory graph
+  350  ansible-inventory -graph
+  351  ansible-inventory --graph
+  352  ansible-playbook simple_ping.yml 
+  353  vi hosts.ini 
+  354  vi simple_ping.yml
+  355  ansible-playbook simple_ping.yml -u vigneshn -k
+  356  vi simple_ping.yml
+  357  ansible-playbook simple_ping.yml -u vigneshn -k
+  358  vi simple_ping.yml
+  359  cd ~/.ansible/collections/ansible_collections/
+  360  tree -C
+  361  vi simple_ping.yml
+  362  cd ~
+  363  cd ansible_
+  364  cd ansible_scripts/
+  365  vi simple_ping.yml 
+  366  ansible-playbook simple_ping.yml -u vigneshn -k
+  367  vi simple_ping.yml 
+  368  vi hosts.ini 
+  369  ansible-playbook simple_ping.yml
+  370  vi simple_ping.yml 
+  371  ansible-playbook simple_ping.yml
+  372  ansible-playbook simple_ping.yml -u vigneshn -k
+  373  vi simple_ping.yml 
+  374  pwd
+  375  ansible --version
+  376  ansible-galaxy collection list | grep Juniper
+  377  ansible-galaxy collection list | grep juniper
+  378  pip freeze
+  379  vi hosts.ini 
+  380  ansible-playbook simple_ping.yml -u vigneshn -k
+  381  vi hosts.ini 
+  382  ansible-playbook simple_ping.yml -u vigneshn -k
+  383  vi hosts.ini 
+  384  ansible-playbook simple_ping.yml 
+  385  vi hosts.ini 
+  386  ansible-playbook simple_ping.yml 
+  387  more hosts.ini 
+  388  vi hosts.ini 
+  389  ansible-playbook simple_ping.yml 
+  390  ansible-playbook simple_ping.yml -u vigneshn
+  391  ansible-playbook simple_ping.yml -u vigneshn -k 
+  392  vi hosts.ini 
+  393  ansible-playbook simple_ping.yml -u vigneshn -k 
+  394  vi hosts.ini 
+  395  ansible-playbook simple_ping.yml -u vigneshn -k 
+  396  ls -ltr
+  397  source ansible_venv1/bin/activate
+  398  python -v
+  399  python -V
+  400  ls -ltr
+  401  cd ansible_scripts/
+  402  ls -ltr
+  403  vi simple_ping2.yml 
+  404  more hosts.ini 
+  405  ansible-playbook simple_ping.yml 
+  406  ansible-playbook simple_ping2.yml 
+  407  vi simple_ping2.yml 
+  408  ansible-playbook simple_ping2.yml 
+  409  more hosts.ini 
+  410  vi simple_ping2.yml 
+  411  ansible-playbook simple_ping2.yml 
+  412  vi hosts.ini 
+  413  ansible-playbook simple_ping2.yml 
+  414  vi hosts.ini 
+  415  ansible-playbook simple_ping2.yml 
+  416  ansible-playbook simple_ping2.yml -vv
+  417  ansible-playbook simple_ping2.yml -vvv
+  418  vi simple_ping2.yml 
+  419  ansible-playbook simple_ping2.yml 
+  420  more simple_ping2.yml 
+  421  more hosts.ini 
+  422    cd ansible_scripts/
+  423  ls -ltr
+  424  more simple_ping2.yml 
+  425  source ../ansible_venv1/bin/activate
+  426  ansible-playbook simple_ping2.yml 
+  427  cp simple_ping2.yml simple_ping3.yml
+  428  vi simple_ping3.yml 
+  429  ansible-playbook simple_ping3.yml 
+  430  vi simple_ping3.yml 
+  431  ansible-playbook simple_ping3.yml 
+  432  vi hosts.ini 
+  433    
+  434  ls -ltr
+  435  more simple_ping.yml 
+  436  more junos_install.yml 
+  437  uname -a
+  438  sudo dnf install git libasound2 libcurl4 libgbm1 libgcrypt20 libgtk-3-0 libnotify4 libnss3 libglib2.0-bin xdg-utils libx11-xcb1 libxcb-dri3-0 libxss1 libxtst6 libxkbfile1
+  439  curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  440  pwd
+  441  ls -ltr
+  442  vi .vimrc
+  443  vi test
+  444  which vim
+  445  ls -lart
+  446  cat .viminfo 
+  447  cat .vimrc 
+  448  vi .vimrc 
+  449  vi test 
+  450  vi .vimrc 
+  451  vi test 
+  452  cd ansible_scripts/
+  453  ls -ltr
+  454  vi hosts.ini 
+  455  cd ~
+  456  mkdir .vim
+  457  ls -ltr
+  458  ls -lart
+  459  .vim
+  460  cd .vim/
+  461  ls -ltr
+  462  cd ..
+  463  ls -ltr
+  464  vi test 
+  465  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  466  vi 
+  467  vi test 
+  468  vi .vimrc 
+  469  vi test 
+  470  ls -lart
+  471  cd .vim/
+  472  ls -ltr
+  473  cd ~
+  474  vi .vimrc 
+  475  cd ansible_scripts/
+  476  ls -ltr
+  477  vi hosts.ini 
+  478  vi ../.vimrc 
+  479  vi .vimrc 
+  480  vi ../.vimrc 
+  481  vi hosts.ini 
+  482  vi simple_ping3.yml 
+  483  vi ../.vimrc 
+  484  vi simple_ping3.yml 
+  485  vi ../.vimrc 
+  486  vi simple_ping3.yml 
+  487  vi ../.vimrc 
+  488  vi simple_ping3.yml 
+  489  vi ../.vimrc 
+  490  vi simple_ping3.yml 
+  491  vi ../.vimrc 
+  492  vi simple_ping3.yml 
+  493  vi japan.j2
+  494  cd ~
+  495  git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+  496  sh ~/.vim_runtime/install_awesome_vimrc.sh
+  497  cd ~/.vim_runtime/
+  498  ls -ltr
+  499  git pull --rebase
+  500  cd ~
+  501  cd ansible_scripts/
+  502  vi simple_ping3.yml 
+  503    
+  504  vi simple_ping3.yml 
+  505  vi hosts.ini 
+  506  source ~/ansible_venv1/bin/activate
+  507  ansible-playbook simple_ping3.yml 
+  508  vi simple_ping3.yml 
+  509  ansible-playbook simple_ping3.yml 
+  510  cp simple_ping3.yml simple_ping4.yml
+  511  vi simple_ping4.yml 
+  512  cp simple_ping3.yml simple_ping4.yml
+  513  vi simple_ping4.yml 
+  514  ansible-playbook simple_ping4.yml 
+  515  vi simple_ping4.yml 
+  516  ansible-playbook simple_ping4.yml 
+  517  ls -ltr
+  518  more simple_ping2.yml 
+  519  vi simple_ping2.yml 
+  520  cp hosts.ini hosts2.ini 
+  521  vi hosts2.ini 
+  522  ansible-playbook simple_ping2.yml 
+  523  vi hosts2.ini 
+  524  ansible-playbook simple_ping2.yml 
+  525  vi hosts2.ini 
+  526  vi hosts.ini 
+  527  ansible-playbook simple_ping2.yml -i hosts2.ini 
+  528  vi hosts2.ini 
+  529  tree -C
+  530  cd ~
+  531  tree -C
+  532  q
+  533  cd ansible_scripts/
+  534  tree -C
+  535  pwd
+  536  source ansible_venv1/bin/activate
+  537  ansible --version
+  538        ls -ltr
+  539  cd ansible_scripts/
+  540  ls -ltr
+  541  more junos_install
+  542  more junos_install.yml 
+  543  ls -ltr
+  544  source ansible_venv1/bin/a
+  545  source ansible_venv1/bin/activate
+  546  pip list 
+  547  pip install --upgrade pip
+  548  ansible --version
+  549  cd ansible_scripts/
+  550  ls -ltr
+  551  cat simple_ping2.yml 
+  552  cat hosts2.ini 
+  553  ansible-playbook simple_ping2.yml 
+  554  cat hosts.ini 
+  555  cat simple_ping3.yml 
+  556  cat simple_ping4.yml 
+  557  cat simple_ping2.yml -u vigneshn -k 
+  558  cat hosts.ini 
+  559  history
+  560  ansible-playbook  simple_ping2.yml -u vigneshn -k 
+  561  ls -ltr
+  562  cat junos_install.yml 
+  563  ls -ltr
+  564  vi junos_install.yml 
+  565      
+  566  cat hosts.ini 
+  567  vi junos_install.yml 
+  568  vi sf-edgeswitch-host.imi
+  569  vi sf-edgeswitch-host.ini
+  570  cat hosts.ini 
+  571  vi sf-edgeswitch-host.ini 
+  572  pwd
+  573  cd ..
+  574  ls -ltr
+  575  cd scripts/
+  576  ls -ltr
+  577  cat apply_switch_conf2.py 
+  578  cat commands.txt 
+  579  vi netconf_commands.txt
+  580  cat netconf_commands.txt 
+  581  vi apply_switch_conf2.py 
+  582  cd ../ansible_scripts/
+  583  vi enable_netconf_sf2_switches.py
+  584  python enable_netconf_sf2_switches.py 
+  585  pip install netmiko
+  586  python enable_netconf_sf2_switches.py 
+  587  vi enable_netconf_sf2_switches.py
+  588  cat ../scripts/sf_edge_switches.txt 
+  589  vi enable_netconf_sf2_switches.py
+  590  vi sf2_edge_switches.txt
+  591  vi enable_netconf_sf2_switches.py
+  592  python enable_netconf_sf2_switches.py 
+  593  vi enable_netconf_sf2_switches.py
+  594  vi sf2_edge_switches.txt
+  595  python enable_netconf_sf2_switches.py 
+  596  vi enable_netconf_sf2_switches.py
+  597  python enable_netconf_sf2_switches.py 
+  598  vi enable_netconf_sf2_switches.py
+  599  python enable_netconf_sf2_switches.py 
+  600  vi enable_netconf_sf2_switches.py
+  601  python enable_netconf_sf2_switches.py 
+  602  vi enable_netconf_sf2_switches.py
+  603  python enable_netconf_sf2_switches.py 
+  604  vi enable_netconf_sf2_switches.py
+  605  python enable_netconf_sf2_switches.py 
+  606  vi enable_netconf_sf2_switches.py
+  607  source ansible_venv1/bin/activate
+  608  cd ansible_scripts/
+  609  ls -ltr
+  610  vi enable_netconf_sf2_switches.py 
+  611  python enable_netconf_sf2_switches.py 
+  612  vi enable_netconf_sf2_switches.py 
+  613  python enable_netconf_sf2_switches.py 
+  614  vi enable_netconf_sf2_switches.py 
+  615  vi enable_netconf.txt
+  616  vi enable_netconf_sf2_switches.py 
+  617  python enable_netconf_sf2_switches.py 
+  618  ls -ltr
+  619  cat sf_sw_log.txt 
+  620  ls -ltr
+  621  vi enable_netconf_sf2_switches.py 
+  622  python enable_netconf_sf2_switches.py 
+  623  vi enable_netconf_sf2_switches.py 
+  624  python enable_netconf_sf2_switches.py 
+  625  cat sf_sw_log.txt 
+  626  vi enable_netconf_sf2_switches.py 
+  627  cat ../scripts/apply_switch_conf2.py 
+  628  vi enable_netconf_sf2_switches.py 
+  629  python enable_netconf_sf2_switches.py 
+  630  cat enable_netconf_sf2_switches.py 
+  631  cat sf_sw_log.txt 
+  632  cat ../scripts/apply_switch_conf2.py 
+  633  vi enable_netconf_sf2_switches.py 
+  634  python enable_netconf_sf2_switches.py 
+  635  vi enable_netconf_sf2_switches.py 
+  636  python enable_netconf_sf2_switches.py 
+  637  cat sf_sw_log.txt 
+  638  ls -ltr
+  639  vi sf-edgeswitch-host.ini 
+  640  cat ../scripts/sf_edge_switches.txt
+  641  cat ../scripts/sf_edge_switches.txt | sort
+  642  vi enable_netconf_sf2_switches.py 
+  643  python enable_netconf_sf2_switches.py 
+  644    
+  645  vi enable_netconf_sf2_switches.py 
+  646  vi enable_netconf.txt 
+  647  vi enable_netconf_sf2_switches.py 
+  648  python enable_netconf_sf2_switches.py 
+  649  ssh vigneshn@sf2jedge102 -p 830 -s netconf
+  650  python enable_netconf_sf2_switches.py 
+  651              
+  652    
+  653    ls -ltr
+  654  cat sf-edgeswitch-host.ini 
+  655  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --help
+  656  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini 
+  657  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --help
+  658  vi simple_ping2.yml 
+  659  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini -f 10
+  660  vi simple_ping2.yml 
+  661  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini -f 10
+  662  source ansible_venv/bin/activate 
+  663  cd scripts/ 
+  664   ls -ltr
+  665  cd ..
+  666  cd ansible_scripts/
+  667  ls -ltr
+  668  cat sf-edgeswitch-host.ini 
+  669  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --limit sf2jedge201
+  670  deactivate 
+  671  source ../ansible_venv1/bin/activate 
+  672  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --limit sf2jedge201
+  673  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --limit sf2_row2 
+  674  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --limit sf2_row2 --check 
+  675  ls -ltr
+  676  cp simple_ping2.yml simple_ping5.yml
+  677  vi simple_ping5.yml 
+  678  ansible-playbook simple_ping5.yml -i sf-edgeswitch-host.ini --limit sf2_row2 --tag test1
+  679  vi simple_ping5.yml 
+  680  ansible-playbook simple_ping5.yml -i sf-edgeswitch-host.ini --limit sf2_row2 --tag test1
+  681  vi simple_ping5.yml 
+  682  ansible-playbook simple_ping5.yml -i sf-edgeswitch-host.ini --limit sf2_row2 --tag test1
+  683  vi simple_ping5.yml 
+  684  ansible-playbook simple_ping5.yml -i sf-edgeswitch-host.ini --limit sf2_row2 --tag test1
+  685  ansible-playbook simple_ping5.yml -i sf-edgeswitch-host.ini --limit sf2jedge201 --tag test1
+  686  vi simple_ping5.yml 
+  687  cd ansible_scripts/
+  688  ls -ltr
+  689  cat junos_install.yml 
+  690  source ansible_venv1/bin/activate
+  691  cd ansible_scripts/
+  692  ls -ltr
+  693    cat simple_ping5.yml 
+  694  cp simple_ping5.yml check_mem_junos.yml
+  695  ls -ltr
+  696  vi check_mem_junos.yml 
+  697  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --list sf2edge113
+  698  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2edge113
+  699  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge113
+  700  cat sf-edgeswitch-host.ini 
+  701  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  702  vi check_mem_junos.yml 
+  703  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  704  vi check_mem_junos.yml 
+  705  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  706  vi check_mem_junos.yml 
+  707  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  708  vi check_mem_junos.yml 
+  709  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  710  vi check_mem_junos.yml 
+  711  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  712  vi check_mem_junos.yml 
+  713  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  714  vi check_mem_junos.yml 
+  715  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge103
+  716  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini 
+  717  vi check_mem_junos.yml 
+  718  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge309
+  719  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  720  vi check_mem_junos.yml 
+  721  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini 
+  722  vi check_mem_junos.yml 
+  723  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini 
+  724  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --fork 10
+  725  vi check_mem_junos.yml 
+  726  ls -ltr
+  727  vi junos_install.yml 
+  728  vi check_mem_junos.yml 
+  729  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  730  vi check_mem_junos.yml 
+  731  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  732  vi check_mem_junos.yml 
+  733  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  734  vi check_mem_junos.yml 
+  735  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  736  vi check_mem_junos.yml 
+  737  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  738  vi check_mem_junos.yml 
+  739  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  740  vi check_mem_junos.yml 
+  741  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  742  vi check_mem_junos.yml 
+  743  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  744  vi check_mem_junos.yml 
+  745  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308
+  746  ansible-playbook check_mem_junos.yml -i sf-edgeswitch-host.ini --limit sf2jedge308 -vv
+  747  vi pprint_file.py
+  748  python pprint_file.py 
+  749  ipython
+  750  ipython -i
+  751  pip intsall ipython
+  752  pip install ipython
+  753  ipython 
+  754  cd ansible_scripts/
+  755  ls -ltr
+  756  vi junos_install-1.yml 
+  757  vi junos_install-2.yml 
+  758  cd ~/sw_images/
+  759  ls -ltr
+  760  source ansible_venv1/bin/activate
+  761  cd ansible_scripts/
+  762  vi backup_sf_edge_switches.yml
+  763  ls -ltr
+  764  vi backup_sf_edge_switches.yml 
+  765  ls -ltr
+  766  vi ansible.cfg 
+  767  vi sf-edgeswitch-host.ini 
+  768  vi backup_sf_edge_switches.yml 
+  769  vi sf-edgeswitch-host.ini 
+  770  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini --limit sf2jedge309
+  771  vi sf-edgeswitch-host.ini 
+  772  vi backup_sf_edge_switches.yml 
+  773  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini --limit sf2jedge309
+  774  vi backup_sf_edge_switches.yml 
+  775  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini --limit sf2jedge309
+  776  vi backup_sf_edge_switches.yml 
+  777  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini --limit sf2jedge309
+  778  vi backup_sf_edge_switches.yml 
+  779  pwd
+  780  vi backup_sf_edge_switches.yml 
+  781  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini --limit sf2jedge309
+  782  vi backup_sf_edge_switches.yml 
+  783  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini --limit sf2jedge309
+  784  ls -ltr
+  785  ls -ltr ~/
+  786  cd ../sf_edge_backup/
+  787  ls -ltr
+  788  cat sf2jedge309_config.2022-08-11@21\:59\:42 
+  789     
+  790  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini
+  791  cd ~/ansible_scripts/
+  792  ansible-playbook backup_sf_edge_switches.yml -i sf-edgeswitch-host.ini
+  793    
+  794  cd ../sf_edge_backup/
+  795  ls -ltr
+  796  scp * vigneshn@splops08:/home/vigneshn/junk
+  797  scp * vigneshn@splops08/home/vigneshn/junk
+  798  scp --help
+  799  h
+  800  scp vigneshn@splops08:/home/vigneshn/junk/ *
+  801  scp vigneshn@splops08:/home/vigneshn/junk/ sf2jedge*
+  802  scp splops08:/home/vigneshn/junk/ sf2jedge*
+  803  scp sf2jedge* splops08:/home/vigneshn/junk/
+  804  scp sf2jedge309_config.2022-08-11@21:59:42 splops08:/home/vigneshn/junk/
+  805  scp sf2jedge309_config.2022-08-11@21:59:42 splops08:/home/vigneshn/junk
+  806  scp sf2jedge* splops08:/home/vigneshn/junk
+  807  scp sf2jedge* splops08:
+  808  scp sf2jedge309_config.2022-08-11@21:59:42 splops08:
+  809  scp
+  810    cd ../ansible_scripts/
+  811  ls -ltr
+  812  vi junos_install.yml 
+  813  vi sf-edgeswitch-host.ini 
+  814  history | grep junos
+  815  ansible-playbook --help
+  816  source ansible_venv1/bin/activate
+  817  cd ansible_scripts/
+  818  vi sf-edgeswitch-host.ini 
+  819  ansible-playbook junos_install.yml -i sf-edgeswitch-host.ini --limit sf2jedge201:sf2jedge202:sf2jedge203 
+  820  source ansible_venv1/bin/activate
+  821  cd ansible_scripts/
+  822  ansible-playbook junos_install.yml -i sf-edgeswitch-host.ini --limit sf2jedge204:sf2jedge101:sf2jedge102 -vv
+  823  vi sf2_edge_switches.txt 
+  824  ls -ltr
+  825  vi sf-edgeswitch-host.ini 
+  826  vi sf-edgeswitch-host.ini
+  827  ansible-playbook junos_install.yml -i sf-edgeswitch-host.ini --limit sf2_row1
+  828    
+  829  vi sf-edgeswitch-host.ini 
+  830  ls -ltr
+  831  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --fork 10
+  832  vi sf-edgeswitch-host.ini 
+  833  ansible-playbook junos_install.yml -i sf-edgeswitch-host.ini --limit sf2_row3 --fork 10 
+  834  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini --fork 10
+  835    
+  836  vi sf-edgeswitch-host.ini 
+  837          
+  838  who
+  839  ls -ltr
+  840  history
+  841  source ansible_venv1/bin/activate
+  842  ansible-playbook --version
+  843  deactivate 
+  844  source 
+  845  ls -ltr
+  846  source py-scripts-v3/bin/activate
+  847  python -V
+  848  pip list 
+  849  deactivate 
+  850  source py-scripts-v2/bin/activate
+  851  pip list 
+  852  ls -ltr
+  853  cd scripts/
+  854  ls -ltr
+  855  vi netconf_commands.txt 
+  856  vi apply_switch_conf2.py 
+  857  vi commands.txt 
+  858  vi au_switches.txt 
+  859  cd ..
+  860  ls -ltr
+  861  cd ansible_scripts/
+  862  ls -ltr
+  863  vi enable_netconf_sf2_switches.py 
+  864  vi sf2_edge_switches.txt 
+  865  vi au2_edge_switches.txt
+  866  cat enable_netconf.txt 
+  867  cp enable_netconf_sf2_switches.py  enable_netconf_au2_switches.py
+  868  ls -ltr
+  869  vi enable_netconf_au2_switches.py 
+  870  python enable_netconf_au2_switches.py 
+  871  ls -ltr
+  872              
+  873  vi sf-edgeswitch-host.ini 
+  874  cp sf-edgeswitch-host.ini au-edgeswitch-host.ini
+  875  vi au-edgeswitch-host.ini 
+  876  vi simple_ping4.yml 
+  877  vi simple_ping3.yml 
+  878  cat simple_ping2.yml 
+  879  cat simple_ping5.yml 
+  880  ls -ltr
+  881  cat simple_ping2.yml 
+  882  deactivate 
+  883  source ../ansible_venv1/bin/activate
+  884  ansible-playbook simple_ping2.yml -i au-edgeswitch-host.ini 
+  885  ls -ltr
+  886  vi au-edgeswitch-host.ini 
+  887  vi backup_sf_edge_switches.yml 
+  888  ansible-playbook backup_sf_edge_switches.yml -i au-edgeswitch-host.ini 
+  889  cd ../au_edge_backup/
+  890  ls -ltr
+  891  vi au2jedge105_config.2022-09-14@21\:04\:01 
+  892  ls -ltr
+  893  cd ..
+  894  ls -ltr
+  895  cd sf_edge_backup/
+  896  ls -ltr
+  897  source ansible_venv1/bin/activate
+  898  cd ansible_scripts/
+  899  ls -tr
+  900  ls -ltr
+  901  cat au-edgeswitch-host.ini 
+  902      
+  903  ansible-playbook junos_install.yml -i au-edgeswitch-host.ini --limit au2jedge102:au2jedge103:au2jedge104:au2jedge105:au2jedge106 --fork 5
+  904    ansible-playbook junos_install.yml -i au-edgeswitch-host.ini --limit au2jedge108:au2jedge109:au2jedge110:au2jedge111 --fork 5
+  905  ansible-playbook junos_install.yml -i au-edgeswitch-host.ini --limit au2jedge204:au2jedge205:au2jedge206:au2jedge208:au2jedge209:au2jedge210:au2jedge211 --fork 10
+  906  source ansible_venv1/bin/activate
+  907  cd ansible_scripts/
+  908  ls -ltr
+  909  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini
+  910  ansible-playbook simple_ping2.yml -i au-edgeswitch-host.ini --fork 10 
+  911  vi au-edgeswitch-host.ini 
+  912  ansible-playbook simple_ping2.yml -i au-edgeswitch-host.ini --fork 10 
+  913  source ansible_venv1/bin/activate
+  914  cd ansible_scripts/
+  915  ansible-playbook simple_ping2.yml -i au-edgeswitch-host.ini --check
+  916  ls -ltr
+  917  git status
+  918  ssh au2jlom204
+  919    nslookup 172.20.129.135/
+  920    nslookup 172.20.129.135
+  921          
+  922  source ansible_venv1/bin/activate
+  923  cd ansible_scripts/
+  924  ansible-playbook simple_ping2.yml -i au-edgeswitch-host.ini 
+  925  ssh au2jedge110 
+  926  ssh aupavpn1
+  927  ansible-playbook simple_ping2.yml -i sf-edgeswitch-host.ini 
+  928  ssh sf2jedge201
+  929          
+  930  ls -ltr
+  931  source py-scripts-v2/bin/activate
+  932  pip list 
+  933  history 
+  934  ls -ltr 
+  935  cd 
+  936  history | grep py-scripts
+  937    cd scripts/
+  938  ls 0ltr
+  939  ls -ltr
+  940  vi apply_cisco_conf.py 
+  941  cd ..
+  942  cd ansible_scripts/
+  943  ls -ltr
+  944  vi enable_netconf_sf2_switches.py 
+  945  less enable_netconf_sf2_switches.py 
+  946  more enable_netconf_sf2_switches.py 
+  947  cd ../scripts/
+  948  ls -ltr
+  949  vi lom_sw_log.py
+  950  cat ../ansible_scripts/enable_netconf_sf2_switches.py
+  951  vi lom_sw_log.py
+  952  vi au2_lom_switches.txt
+  953  cat au2_lom_switches.txt 
+  954  cat lom_sw_log.py 
+  955  vi ignore_log.txt
+  956  cat ignore_log.txt 
+  957  cat ../ansible_scripts/enable_netconf.txt
+  958  ls -ltr
+  959  python lom_sw_log.py 
+  960  vi au2_lom_switches.txt 
+  961  python lom_sw_log.py 
+  962    
+  963  vi au2_lom_switches.txt 
+  964  python lom_sw_log.py 
+  965  vi sf2_lom_switches.txt
+  966  vi lom_sw_log.py 
+  967  vi ignore_log.txt 
+  968  python lom_sw_log.py 
+  969  source py-scripts-v2/bin/activate
+  970  ls -ltr
+  971  cd scripts/
+  972  ls -ltr
+  973  vi lom_sw_log.py 
+  974  cp lom_sw_log.py send_confg_junos.py
+  975  vi send_confg_junos.py 
+  976  ls -ltr
+  977  cat send_confg_junos.py 
+  978  vi commands_junos.txt
+  979  vi sf2_lom_switches.txt 
+  980  vi sf2_switches.txt
+  981  cat sf2_lom_switches.txt 
+  982  vi sf2_switches.txt
+  983  ls -ltr
+  984  cat sf_edge_switches.txt 
+  985  vi sf2_switches.txt 
+  986  cat sf2_switches.txt 
+  987    
+  988  vi commands_junos.txt
+  989  vi sf2_switches.txt 
+  990  python send_confg_junos.py 
+  991  vi send_confg_junos.py 
+  992  python send_confg_junos.py 
+  993  vi sf2_switches.txt 
+  994  python send_confg_junos.py 
+  995  vi sf2_switches.txt 
+  996  python send_confg_junos.py 
+  997    
+  998  vi sf2_switches.txt 
+  999  python send_confg_junos.py 
+ 1000  ls -ltr
+ 1001  history
+ 1002  ls -ltr
+ 1003  history >> history.txt
