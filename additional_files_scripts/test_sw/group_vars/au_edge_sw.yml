@@ -1,0 +1,12 @@
+---
+domain: vailsys.com
+location: au
+tftpserver: 172.25.129.230
+tacacs_ip1: 172.25.130.74
+tacacs_ip2: 192.168.129.30
+syslog_server_ip: 172.25.130.79
+ntp_list:
+    - 172.25.150.83
+    - 172.25.150.84
+    - 172.25.150.85
+

@@ -1,0 +1,231 @@
+set system host-name {{hostname}}
+set system auto-snapshot
+set system domain-name {{domain}}
+{% if location == "au" %}
+set system time-zone America/Denver
+{% else %}
+set system time-zone America/Detroit
+{% endif %}
+set system root-authentication encrypted-password "$6$9/ibUHrh$3lZgAb0SVOPidzJp4M1KQxPSG4hSxnmk4L0EVROyOauwf7H9CeFZqM0rCxVtr2XrYAO5xaIdiwfs.O3SsThHo/"
+set system login message "\n\n\tUNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You\n\tmust have explicit permission to access or configuren this device may be logged,\n\tand violations of this policy may result in disciplinary\n\taction, and may be reported to law enforcement. There is no\n\tright to privacy on this device\nTo save the config to TFTP in display set format\n\nshow configuration | display set | save /var/tmp/{{hostname}}-confg\nfile copy
+/var/tmp/{{hostname}}-confg juniperbkp@{{tftpserver}}:/tftpboot/config/sf/\n"
+set system authentication-order tacplus
+set system authentication-order password
+set system tacplus-server {{tacacs_ip1}} port 49
+set system tacplus-server {{tacacs_ip1}} secret "$9$/-mGtBRylML7V0OxdVsJZjHkq5QzF60BEpu8XxNbw5Qz"
+set system tacplus-server {{tacacs_ip1}} source-address {{mgmt_irb_intf_ip}}
+set system tacplus-server {{tacacs_ip2}} port 49
+set system tacplus-server {{tacacs_ip2}} secret "$9$9eT0p0IKv8XNbylaGikf53n/CO1vMXbwgdbQF6C1ISrevLN24J"
+set system tacplus-server {{tacacs_ip2}} source-address {{mgmt_irb_intf_ip}}
+set system accounting events login
+set system accounting events change-log
+set system accounting events interactive-commands
+set system accounting destination tacplus server {{tacacs_ip1}} secret "$9$/-mGtBRylML7V0OxdVsJZjHkq5QzF60BEpu8XxNbw5Qz"
+set system accounting destination tacplus server {{tacacs_ip1}} source-address {{mgmt_irb_intf_ip}}
+set system accounting destination tacplus server {{tacacs_ip2}} secret "$9$9eT0p0IKv8XNbylaGikf53n/CO1vMXbwgdbQF6C1ISrevLN24J"
+set system accounting destination tacplus server {{tacacs_ip2}} source-address {{mgmt_irb_intf_ip}}
+
+set system login class NETADMIN idle-timeout 60
+set system login class NETADMIN permissions all
+set system login class RANCID idle-timeout 5
+set system login class RANCID permissions view-configuration
+set system login class RANCID allow-commands show
+set system login class OPERATIONS idle-timeout 10
+set system login class OPERATIONS permissions clear
+set system login class OPERATIONS permissions configure
+set system login class OPERATIONS permissions interface
+set system login class OPERATIONS permissions interface-control
+set system login class OPERATIONS permissions view-configuration
+set system login class OPERATIONS allow-commands "show|ping|traceroute"
+set system login class OPERATIONS allow-configuration "edit interface"
+set system login class VNOC idle-timeout 10
+set system login class VNOC permissions view-configuration
+set system login class VNOC allow-commands show
+set system login user aprowant full-name "Andrew Prowant"
+set system login user aprowant uid 2002
+set system login user aprowant class NETADMIN
+set system login user aswalmeh full-name "Amin Swalmeh"
+set system login user aswalmeh uid 1001
+set system login user aswalmeh class NETADMIN
+set system login user bahtiyar full-name "Bahtiyar Nogoibasov"
+set system login user bahtiyar uid 2011
+set system login user bahtiyar class OPERATIONS
+set system login user boris uid 2004
+set system login user boris class OPERATIONS
+set system login user csmith full-name "Chris Smith"
+set system login user csmith uid 2005
+set system login user csmith class OPERATIONS
+set system login user jtummala full-name "Jyothi Tummala"
+set system login user jtummala uid 2003
+set system login user jtummala class NETADMIN
+set system login user kcassidy full-name "Kevin Cassidy"
+set system login user kcassidy uid 2052
+set system login user kcassidy class OPERATIONS
+set system login user lerch full-name "Mike Lerch"
+set system login user lerch uid 2007
+set system login user lerch class OPERATIONS
+set system login user mike full-name "Mike Bruening"
+set system login user mike uid 102
+set system login user mike class NETADMIN
+set system login user msaleem full-name "Moid Saleem"
+set system login user msaleem uid 300
+set system login user msaleem class OPERATIONS
+set system login user msmith full-name "Matt Smith"
+set system login user msmith uid 2051
+set system login user msmith class OPERATIONS
+set system login user rancid uid 120
+set system login user rancid class RANCID
+set system login user terry full-name "Terry Jarnholm"
+set system login user terry uid 2006
+set system login user terry class OPERATIONS
+set system login user vigneshn full-name "Vignesh Nagarajan"
+set system login user vigneshn uid 2000
+set system login user vigneshn class NETADMIN
+set system login user tstevenson full-name "Tim Stevenson"
+set system login user tstevenson uid 1009
+set system login user tstevenson class OPERATIONS
+set system login user hgoscenski full-name "Harrison Goscenski"
+set system login user hgoscenski uid 1010
+set system login user hgoscenski class OPERATIONS
+set system login user atekebaeva full-name "Ainisa Tekebaeva"
+set system login user atekebaeva uid 1011
+set system login user atekebaeva class OPERATIONS
+set system login user remote full-name "Remote User"
+set system login user remote uid 3000
+set system login user remote class VNOC
+set system services ssh no-tcp-forwarding
+set system services ssh protocol-version v2
+set system services ssh ciphers aes128-ctr
+set system services ssh ciphers aes192-ctr
+set system services ssh ciphers aes256-ctr
+set security ssh-known-hosts host {{tftpserver_ip}} rsa-key AAAAB3NzaC1yc2EAAAABIwAAAQEA0clP6SWUHNOW2hGekldFqcJ7ua4lS1lhYJWfKwt8lPKA1938UOliBgGazjVat8AnKLrkFmSTYnVa3+lIariRgRi9SHTIA3a5kFaZXyYW8DzwFvYp0KVCCkMJO9mH7VIXEXgGZsbsVIClVzPKPZGr0IiAR5Y6s2gEqCAGVwPKv2G/aTYAX/vJPQUbsFRlvjtqBoPACdqxsY3M462bTlxRv7hdpY/IBRaDL6jDAXrLOjemPGTyUIPBeVlT+sgal7581n8Fv2SRThR00cWO9ogzSmYhKAnYriJY7X6IS6nayyD/TcTPH8jFGYkai4Oi4YiE5r/SsoBP8vYAj1X/8RwlpQ==
+set system syslog archive size 500k
+set system syslog archive files 5
+set system syslog user * any emergency
+set system syslog host {{syslog_server_ip}} any any
+set system syslog host {{syslog_server_ip}} firewall info
+set system syslog host {{syslog_server_ip}} match "!(/kernel: setsocketopts|DH_SVC_|Rx power high|root|CMLC|cmlc_msg|MCSNOOPD|cosd:|libasync_send_pkt|if_pfe_ge_ifdstat_ipc|ifd-oper|rt_irb_get_vrf_rt|kernel time sync)"
+set system syslog host {{syslog_server_ip}} source-address {{mgmt_irb_intf_ip}}
+set system syslog file messages any any
+set system syslog file messages authorization info
+set system syslog file messages match "!(/kernel: setsocketopts|DH_SVC_|Rx power high|root|CMLC|cmlc_msg|MCSNOOPD|cosd:|libasync_send_pkt|if_pfe_ge_ifdstat_ipc|ifd-oper|rt_irb_get_vrf_rt|kernel time sync|if_msg_ifd|Decode ifd)"
+set system syslog file interactive-commands interactive-commands any
+set system syslog file traffic-logs any any
+set system syslog file traffic-logs match RT_
+set system syslog file traffic-logs archive size 1m
+set system syslog file traffic-logs archive files 3
+set system syslog file traffic-logs structured-data
+set system syslog file critical-logs any critical
+set system syslog file critical-logs archive size 1m
+set system syslog file critical-logs archive files 3
+set system syslog file critical-logs structured-data
+set system archival configuration transfer-interval 2880
+set system archival configuration archive-sites "scp://juniperbkp@{{tftpserver_ip}}:/tftpboot/config/sf" password "$9$CjVBu1E7NboaUcy8x7dg4n/9ABEeKWLX-/CevWLVbHqmP36cSe" 
+delete system processes dhcp-service
+{{% for i in ntp_list %}}
+set system ntp server {{i}}
+{{% endfor %}}
+set system ntp source-address {{mgmt_irb_intf_ip}}
+set interfaces ge-0/0/0 disable
+set interfaces ge-0/0/1 disable
+set interfaces ge-0/0/2 disable
+set interfaces ge-0/0/3 disable
+set interfaces ge-0/0/4 disable
+set interfaces ge-0/0/5 disable
+set interfaces ge-0/0/6 disable
+set interfaces ge-0/0/7 disable
+set interfaces ge-0/0/8 disable
+set interfaces ge-0/0/9 disable
+set interfaces ge-0/0/10 disable
+set interfaces ge-0/0/11 disable
+set interfaces ge-0/0/12 disable
+set interfaces ge-0/0/13 disable
+set interfaces ge-0/0/14 disable
+set interfaces ge-0/0/15 disable
+set interfaces ge-0/0/16 disable
+set interfaces ge-0/0/17 disable
+set interfaces ge-0/0/18 disable
+set interfaces ge-0/0/19 disable
+set interfaces ge-0/0/20 disable
+set interfaces ge-0/0/21 disable
+set interfaces ge-0/0/22 disable
+set interfaces ge-0/0/23 disable
+set interfaces ge-0/0/24 disable
+set interfaces ge-0/0/25 disable
+set interfaces ge-0/0/26 disable
+set interfaces ge-0/0/27 disable
+set interfaces ge-0/0/28 disable
+set interfaces ge-0/0/29 disable
+set interfaces ge-0/0/30 disable
+set interfaces ge-0/0/31 disable
+set interfaces ge-0/0/32 disable
+set interfaces ge-0/0/33 disable
+set interfaces ge-0/0/34 disable
+set interfaces ge-0/0/35 disable
+set interfaces ge-0/0/36 disable
+set interfaces ge-0/0/37 disable
+set interfaces ge-0/0/38 disable
+set interfaces ge-0/0/39 disable
+set interfaces ge-0/0/40 disable
+set interfaces ge-0/0/41 disable
+set interfaces ge-0/0/42 disable
+set interfaces ge-0/0/43 disable
+set interfaces ge-0/0/44 disable
+set interfaces ge-0/0/45 disable
+set interfaces ge-0/0/46 disable
+set interfaces ge-0/0/47 disable
+set interfaces ae0 description {{hostname}}-sf2jcore
+set interfaces ae0 native-vlan-id 1
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options link-speed 10g
+set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae0 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ae0 unit 0 family ethernet-switching vlan members all
+ 
+delete interfaces xe-0/2/0 unit 0
+delete interfaces xe-0/2/1 unit 0
+ 
+set interfaces xe-0/2/0 description {{hostname}}-sf2jcore00
+set interfaces xe-0/2/0 ether-options 802.3ad ae0
+set interfaces xe-0/2/1 description {{hostname}}-sf2jcore01
+set interfaces xe-0/2/1 ether-options 802.3ad ae0
+ 
+set interfaces irb unit 123 description sf-edge-sw-mgmt
+set interfaces irb unit 123 family inet filter input Interface-mgmt-In
+set interfaces irb unit 123 family inet address {{mgmt_irb_intf_ip}}/24
+set protocols mvrp interface ae0 registration normal
+ 
+set protocols rstp interface all
+
+set vlans v123 description sf-edge-sw-mgmt
+set vlans v123 vlan-id 123
+set vlans v123 l3-interface irb.123
+
+set snmp location "Southfield, MI"
+set snmp v3 usm local-engine user snmp3user authentication-sha authentication-key ahKei2shoMe8
+set snmp v3 usm local-engine user snmp3user privacy-aes128 privacy-key V8245ail!
+set snmp v3 vacm security-to-group security-model usm security-name snmp3user group view-all
+set snmp v3 vacm access group view-all default-context-prefix security-model usm security-level privacy read-view view-all
+set snmp view view-all oid .1
+
+set routing-options static route 0.0.0.0/0 next-hop 172.20.123.1
+
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 192.168.129.0/24
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.20.129.0/24
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.25.129.0/24
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from protocol tcp
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from destination-port ssh
+set firewall family inet filter Interface-mgmt-In term Accept-SSH then accept
+set firewall family inet filter Interface-mgmt-In term Deny-SSH from protocol tcp
+set firewall family inet filter Interface-mgmt-In term Deny-SSH from destination-port ssh
+set firewall family inet filter Interface-mgmt-In term Deny-SSH then discard
+set firewall family inet filter Interface-mgmt-In term Accept-Protocol then accept
+
+set protocols lldp disable
+set protocols lldp interface all disable
+set protocols lldp-med interface all disable
+
+set protocols igmp-snooping vlan all
+set protocols igmp-snooping vlan all l2-querier source-address {{mgmt_irb_intf_ip}}
+set protocols igmp-snooping vlan all query-interval 60
+
