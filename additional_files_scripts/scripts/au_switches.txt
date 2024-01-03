@@ -1,9 +1,0 @@
-au2jcore0
-au2jsw0
-au2jsw2
-au2jsw5
-aujsr01
-aujsr02
-aujsw1
-aujsw3
-aujsw6

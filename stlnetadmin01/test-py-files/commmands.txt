@@ -1,3 +1,0 @@
-delete system archival
-delete system ntp server 172.20.4.10
-delete system ntp server 172.20.4.11 

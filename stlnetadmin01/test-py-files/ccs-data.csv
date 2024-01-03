@@ -1,3 +1,0 @@
-Index,Customer,Vail CCS Site,Uplink VLAN ID,Uplink Interface (au|sfjsw2),Uplink Int. Access Groups,Uplink Subnet,Description
-0,200 Blue,Southfield,no tag ( 4090 ),irb.4090 / ge-0/0/0,CCS-DCC-BLUE-(IN|OUT),100.65.0.0/30,200 Blue
-0,200 Blue,Aurora,no tag ( 4090 ),irb.4090 / ge-0/0/0,CCS-DCC-BLUE-(IN|OUT),100.65.0.4/30,200 Blue

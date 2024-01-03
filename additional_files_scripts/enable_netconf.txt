@@ -1,1 +1,0 @@
-set firewall family inet filter Interface-mgmt-In term Accept-SSH from destination-port 830

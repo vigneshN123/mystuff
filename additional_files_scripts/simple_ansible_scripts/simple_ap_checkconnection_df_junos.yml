@@ -1,8 +1,0 @@
----
-- name: Check ansible connections to hosts in host file
-  hosts: all
-  gather_facts: False
-  tasks:
-      - name: Check ansible connection to hosts
-        ping:
-

@@ -1,2 +1,0 @@
-
-set system services netconf ssh

@@ -1,3 +1,0 @@
-# mystuff
-
-Perosnal scripts backup. 
