@@ -1,0 +1,76 @@
+
+#############################################################################################
+#############################################################################################
+
+set vlans v{{vlan_id}} description {{location}}-ccs-dcc-{{customer.lower()}}
+set vlans v{{vlan_id}} vlan-id {{vlan_id}}
+set vlans v{{vlan_id}} l3-interface irb.{{vlan_id}}
+
+set interfaces irb unit {{vlan_id}} description "Cust: 200-CCS-DCC-{{customer.upper()}} {{location.upper()}} pub xovr VL={{vlan_id}} {CirID {{cirid}}} [{{speed.capitalize()}}]"
+set interfaces irb unit {{vlan_id}} family inet address {{ip_addr}}
+
+set interfaces {{intf}} description "Cust: 200-CCS-DCC-{{customer.upper()}} {{location.upper()}} pub xovr {CirID {{cirid}}} [{{speed.capitalize()}}]"
+set interfaces {{intf}} unit 0 family ethernet-switching vlan members v{{vlan_id}}
+
+-- BGP CONFIGURATION --
+
+set policy-options policy-statement SET-LOCAL-{{customer.upper()}} term Prepare-turn-up then reject
+{%- if is_prfx == "yes" %}
+{%- for prfx in prfx_list %}
+set policy-options policy-statement SET-LOCAL-{{customer.upper()}} term {{customer.upper()}}-Prefix-{{prfx_list.index(prfx)+1}} from route-filter {{prfx}} exact
+set policy-options policy-statement SET-LOCAL-{{customer.upper()}} term {{customer.upper()}}-Prefix-{{prfx_list.index(prfx)+1}} then accept
+{%- endfor %}
+{%- endif %}
+set policy-options policy-statement SET-LOCAL-{{customer.upper()}} term DENY-ALL then reject
+
+{% if location == "au" %}
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term Prepare-turn-up then reject
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS from route-filter 8.28.65.0/24 exact
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS then accept
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS-2 from route-filter 8.28.78.0/24 exact
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS-2 then accept
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term DENY-ALL then reject
+{% elif location == "sf" %}
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term Prepare-turn-up then reject
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS from route-filter 8.27.23.0/24 exact
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS then accept
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS-2 from route-filter 8.40.65.0/24 exact
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term VAIL-{{location.upper()}}-CCS-2 then accept
+set policy-options policy-statement SET-REMOTE-{{customer.upper()}} term DENY-ALL then reject
+{% endif %}
+
+set protocols bgp group CTL-{{customer.upper()}}-Peers type external
+set protocols bgp group CTL-{{customer.upper()}}-Peers peer-as {{remote_as}}
+set protocols bgp group CTL-{{customer.upper()}}-Peers bfd-liveness-detection minimum-interval 500
+set protocols bgp group CTL-{{customer.upper()}}-Peers bfd-liveness-detection minimum-receive-interval 500
+set protocols bgp group CTL-{{customer.upper()}}-Peers bfd-liveness-detection multiplier 5
+set protocols bgp group CTL-{{customer.upper()}}-Peers neighbor {{peer_ip}} import SET-LOCAL-{{customer.upper()}}
+set protocols bgp group CTL-{{customer.upper()}}-Peers neighbor {{peer_ip}} export SET-REMOTE-{{customer.upper()}}
+
+-- BASE FLOWs FOR UPLINK --
+
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bgp_in from source-address {{peer_ip}}/32
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bgp_in from destination-address {{ip_addr_wo_mask}}/32
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bgp_in from protocol tcp
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bgp_in from source-port bgp
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bgp_in from destination-port bgp
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bgp_in then count {{customer.upper()}}_bgp_in
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bgp_in then accept
+
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bfd_in from source-address {{peer_ip}}/32
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bfd_in from destination-address {{ip_addr_wo_mask}}/32
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bfd_in from protocol udp
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bfd_in from destination-port 3784-3785
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bfd_in then count {{customer.upper()}}_bfd_in
+set firewall family inet filter {{customer.upper()}}-CCS-IN term bfd_in then accept
+
+set firewall family inet filter {{customer.upper()}}-CCS-IN term icmp_in from destination-address {{ip_addr_wo_mask}}/32
+set firewall family inet filter {{customer.upper()}}-CCS-IN term icmp_in from protocol icmp
+set firewall family inet filter {{customer.upper()}}-CCS-IN term icmp_in then count {{customer.upper()}}_icmp_in
+set firewall family inet filter {{customer.upper()}}-CCS-IN term icmp_in then accept
+
+set interfaces irb unit {{vlan_id}} family inet filter input {{customer.upper()}}-CCS-IN
+
+#############################################################################################
+#############################################################################################
+  

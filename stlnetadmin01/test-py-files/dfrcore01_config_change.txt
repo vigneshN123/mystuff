@@ -1,0 +1,33 @@
+CCCCC
+UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED. You
+must have explicit permission to access or configure this
+device. All activities performed on this device may be logged,
+and violations of this policy may result in disciplinary
+action, and may be reported to law enforcement. There is no
+right to privacy on this device
+
+upload the config by:
+copy running-config tftp:
+Address or name of remote host [] 192.168.129.230
+Destination filename [/config/df/dfrcore01-confg]
+
+dfrcore01#terminal width 511
+dfrcore01#terminal length 0
+dfrcore01#
+dfrcore01#
+dfrcore01#
+dfrcore01#
+dfrcore01#
+dfrcore01#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+dfrcore01(config)#
+dfrcore01(config)#
+dfrcore01(config)#int gi3/11
+dfrcore01(config-if)#no description
+dfrcore01(config-if)#description totall spee
+dfrcore01(config-if)#
+dfrcore01(config-if)#
+dfrcore01(config-if)#end
+dfrcore01#
+dfrcore01#
+dfrcore01#exit

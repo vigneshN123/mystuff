@@ -1,0 +1,11 @@
+- name: Backup Device Configuration
+  hosts: juniper
+  gather_facts: no
+
+  tasks:
+      - name: create backup directory if needed
+        junipernetworks.junos.junos_config:
+            backup: yes
+            backup_options:
+                dir_path: /home/vigneshn/au_edge_backup/
+

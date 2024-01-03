@@ -1,0 +1,22 @@
+---
+- name: Playbook to grep and compare default route configs on all distribution layer Junos MLS
+  hosts: cl_nodes
+  gather_facts: False
+  roles:
+      - Juniper.junos
+  tasks:
+
+      - name: Check the running config on all QFX/EX nodes in SF,AU, DF and CL
+        juniper_junos_command:
+            commands:
+                - show ospf database
+            formats: json
+        register: output
+
+
+      - name: display the output
+        debug:
+            var: output
+
+
+

@@ -1,0 +1,58 @@
+---
+
+- name: change the BGP policies for clrcore0
+  hosts: cl_nodes
+  gather_facts: false
+  tasks: 
+
+    - name: get the current config of bgp from clrcores
+      junipernetworks.junos.junos_command:
+          commands:
+              - show configuration protocols bgp
+              - show configuration policy-options policy-statement ImportBgpProvider1
+              - show configuration policy-options policy-statement ExportBgpProvider1
+          display: text
+      register: output
+      vars:
+          ansible_command_timeout: 90
+      tags: preverify
+
+    - name: show the config on stdout
+      debug:
+          var: output
+      tags: preverfiy
+
+    - name: Change the bgp config for cogent peers in clrcores
+      junipernetworks.junos.junos_config:
+          src: change.cfg
+          comment: bgp policy changes for cogent
+          backup: True
+          backup_options:
+              backup_format: set
+          confirm_commit: True
+      tags: deploy
+
+
+    - name: get the current config of bgp from clrcores after the changes 
+      junipernetworks.junos.junos_command:
+          commands:
+              - show configuration protocols bgp
+          display: text
+      register: output1
+      tags: postverify
+
+    - name: show the config on stdout
+      debug:
+          var: output1
+      tags: postverify
+
+
+
+
+          
+
+        
+
+
+
+

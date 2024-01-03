@@ -1,0 +1,10 @@
+---
+- name: lets try and print "HELLO WORLD"
+  hosts: local
+  gather_facts: False
+  tasks:
+      - name: print hello world
+        debug:
+            msg: "Hello world my name is Vignesh N"
+
+

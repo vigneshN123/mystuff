@@ -1,0 +1,2 @@
+location,customer,ticket_info,cust_rtp_ip_list,ccs1_sip,ccs2_sip,cust_sip_ip_list,vail_ip_list
+au,unm,FW-4694,"8.48.174.200/29,8.48.174.192/29",yes,no,"8.48.174.201/32,8.48.174.193/32",8.28.65.106/31

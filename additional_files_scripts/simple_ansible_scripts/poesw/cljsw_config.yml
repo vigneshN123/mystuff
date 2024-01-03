@@ -1,0 +1,9 @@
+---
+- name: Playbook to generate poe switch configs in CL
+  hosts: cljsw_grp
+  gather_facts: False
+  tasks:
+      - name: generate config from jinja template
+        template:
+            src: /home/vigneshn/ansible_scripts/simple_ansible_scripts/poesw/cljsw.j2
+            dest: /home/vigneshn/ansible_scripts/simple_ansible_scripts/poesw/{{ansible_host}}.cfg

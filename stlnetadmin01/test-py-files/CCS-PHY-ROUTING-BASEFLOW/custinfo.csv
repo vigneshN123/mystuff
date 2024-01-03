@@ -1,0 +1,2 @@
+location,customer,cirid,speed,intf,vlan_id,ip_addr,peer_ip,remote_as,is_prfx,total_prfx,prefx_list 
+au,unm,1234556,1Gbps,ge-0/0/2,1844,100.65.253.170/30,100.65.253.169,3549,yes,2,"10.10.10.10/32,10.10.10.11/32"

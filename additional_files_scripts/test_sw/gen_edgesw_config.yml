@@ -1,0 +1,10 @@
+---
+- name: Playbook to generate base configs for edge switches for SF or AU
+  hosts: sf_edge_sw
+  gather_facts: False
+  tasks: 
+    - name: generate config from jinja template
+      template: 
+            src: ~/ansible_scripts/test_sw/edge_sw.j2
+            dest: ~/ansible_scripts/test_sw/{{ansible_host}}.conf
+

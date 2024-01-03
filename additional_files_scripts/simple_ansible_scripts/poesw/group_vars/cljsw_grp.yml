@@ -1,0 +1,10 @@
+---
+location: America/Chicago
+tac_server1: 172.23.16.230
+tac_server2: 172.20.130.94
+tftp_server: 172.23.16.230
+syslog_list:
+    - 192.168.129.74
+ntp_list:
+    - 172.23.1.1
+

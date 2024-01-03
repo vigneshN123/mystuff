@@ -1,0 +1,10 @@
+Value CUST_NAME (\w+)
+Value LOCATION (\w+)
+Value VLANID (\d{1,4})
+Value IP_ADDR (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2})
+Value DESCRIPTION (.*$$)
+
+Start
+ ^\S+,${CUST_NAME},${LOCATION},${VLANID},.*,${IP_ADDR},${DESCRIPTION} -> Record
+
+EOF

@@ -1,0 +1,512 @@
+set version 18.4R2-S5.4
+set system commit synchronize
+set system login class NETADMIN idle-timeout 60
+set system login class NETADMIN permissions all
+set system login class OPERATIONS idle-timeout 10
+set system login class OPERATIONS permissions clear
+set system login class OPERATIONS permissions configure
+set system login class OPERATIONS permissions interface
+set system login class OPERATIONS permissions interface-control
+set system login class OPERATIONS permissions view-configuration
+set system login class OPERATIONS allow-commands "show|ping|traceroute"
+set system login class OPERATIONS allow-configuration "edit interface"
+set system login class RANCID idle-timeout 5
+set system login class RANCID permissions view-configuration
+set system login class RANCID allow-commands show
+set system login class VNOC idle-timeout 10
+set system login class VNOC permissions view-configuration
+set system login class VNOC allow-commands "show|ping|traceroute"
+set system login user netadmin full-name "Netadmin Team"
+set system login user netadmin uid 100
+set system login user netadmin class NETADMIN
+set system login user rancid full-name "Rancid User"
+set system login user rancid uid 102
+set system login user rancid class RANCID
+set system login user remote full-name "VNOC User"
+set system login user remote uid 103
+set system login user remote class VNOC
+set system login user sysadmin full-name "Sysadmin Team"
+set system login user sysadmin uid 101
+set system login user sysadmin class OPERATIONS
+set system login message "\n*********************************************************************.\nThis system is for the use of authorized users only.\nIndividuals using this computer system without authority, or in\nexcess of their authority, are subject to having all of their\nactivities on this system monitored and recorded by system\npersonnel.\nIn the course of monitoring individuals improperly using this\nsystem, or in the course of system maintenance, the activities\nof authorized users may also be monitored.\nAnyone using this system expressly consents to such monitoring\nand is advised that if such monitoring reveals possible\nevidence of criminal activity, system personnel may provide the\nevidence of such monitoring to law enforcement officials.\n*********************************************************************\nTo save the config to TFTP in display set format\n\nshow configuration | display set | save /var/tmp/dfjcore0-confg\nfile copy /var/tmp/dfjcore0-confg 192.168.129.230:/tftpboot/config/df/\n"
+set system root-authentication encrypted-password "$6$wR0e72hC$tJ/yYB5QUPl51olOn2ymwh5sCE5L8r1QkUGKvgpbvdsWHgBMpnRnRVo6fO1oEZsKSiXZug42OtDxPw.eFkssk/"
+set system services ssh no-tcp-forwarding
+set system services ssh protocol-version v2
+set system services ssh ciphers aes128-ctr
+set system services ssh ciphers aes192-ctr
+set system services ssh ciphers aes256-ctr
+set system services netconf ssh
+set system host-name dfjcore0
+set system auto-snapshot
+set system domain-name vailsys.com
+set system time-zone America/Chicago
+set system authentication-order tacplus
+set system authentication-order password
+set system tacplus-server 172.20.130.94 port 49
+set system tacplus-server 172.20.130.94 secret "$9$.53/p0IhyKzFSeKW-ds2g4GDjiqz39TQEcSrvMGDj"
+set system tacplus-server 172.20.130.94 source-address 192.168.146.12
+set system tacplus-server 192.168.129.39 port 49
+set system tacplus-server 192.168.129.39 secret "$9$Cm.cuIhlK8x-wB1Nbw2GUHq.mQF3n9BIc0OX7NdsYQF3"
+set system tacplus-server 192.168.129.39 source-address 192.168.146.12
+set system accounting events login
+set system accounting events change-log
+set system accounting events interactive-commands
+set system accounting destination tacplus server 172.20.130.94 secret "$9$Zsj.fFnCpORkq0IRcvMX7N-s2g4Jk.5iHtu0BEhs2g"
+set system accounting destination tacplus server 172.20.130.94 source-address 192.168.146.12
+set system accounting destination tacplus server 192.168.129.39 secret "$9$phJ6BIc8L7-b2KMUi.PzF9CtuRhLX-2gJs2n/AuhcevWLNbaZD"
+set system accounting destination tacplus server 192.168.129.39 source-address 192.168.146.12
+set system syslog archive size 500k
+set system syslog archive files 5
+set system syslog user * any emergency
+set system syslog host 192.168.129.74 any any
+set system syslog host 192.168.129.74 firewall any
+set system syslog host 192.168.129.74 match "!(/kernel: setsocketopts|DH_SVC_|Rx power high|root|CMLC|cmlc_msg|MCSNOOPD|cosd:|libasync_send_pkt|if_pfe_ge_ifdstat_ipc|ifd-oper|rt_irb_get_vrf_rt|kernel time sync)"
+set system syslog host 192.168.129.74 source-address 192.168.146.12
+set system syslog file messages any any
+set system syslog file messages authorization info
+set system syslog file messages match "!(/kernel: setsocketopts|DH_SVC_|Rx power high|root|CMLC|cmlc_msg|MCSNOOPD|cosd:|libasync_send_pkt|if_pfe_ge_ifdstat_ipc|ifd-oper|rt_irb_get_vrf_rt|kernel time sync|if_msg_ifd|Decode ifd)"
+set system syslog file interactive-commands interactive-commands any
+set system syslog file traffic-logs any any
+set system syslog file traffic-logs match RT_
+set system syslog file traffic-logs archive size 1m
+set system syslog file traffic-logs archive files 3
+set system syslog file traffic-logs structured-data
+set system syslog file critical-logs any critical
+set system syslog file critical-logs archive size 1m
+set system syslog file critical-logs archive files 3
+set system syslog file critical-logs structured-data
+set system archival configuration transfer-interval 2880
+set system archival configuration archive-sites "scp://juniperbkp@192.168.129.230:/tftpboot/config/df" password "$9$9tX3pBRx7V4oGhSWXx-2g36/CORleM8LN69lKM8dVik.mFnhcl"
+set system ntp server 172.20.4.10
+set system ntp server 172.25.150.83
+set system ntp source-address 192.168.146.12
+set chassis redundancy graceful-switchover
+set chassis aggregated-devices ethernet device-count 10
+set interfaces interface-range test member-range ge-0/0/0 to ge-0/0/43
+set interfaces ge-0/0/0 description dfffw00-wan2
+set interfaces ge-0/0/0 disable
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members v709
+set interfaces ge-0/0/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/1 description dfffw00-wan1
+set interfaces ge-0/0/1 disable
+set interfaces ge-0/0/1 unit 0 family ethernet-switching vlan members v30
+set interfaces ge-0/0/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/2 disable
+set interfaces ge-0/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/3 disable
+set interfaces ge-0/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/4 description dfrwifictl01-port1
+set interfaces ge-0/0/4 native-vlan-id 809
+set interfaces ge-0/0/4 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v805
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v809
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v806
+set interfaces ge-0/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/5 description dfrwifictl01-port2-guestwifi
+set interfaces ge-0/0/5 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members v198
+set interfaces ge-0/0/6 description AP1
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members v809
+set interfaces ge-0/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/7 description AP2
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members v809
+set interfaces ge-0/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/8 description AP3
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members v809
+set interfaces ge-0/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/9 description AP4
+set interfaces ge-0/0/9 unit 0 family ethernet-switching vlan members v809
+set interfaces ge-0/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/10 disable
+set interfaces ge-0/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/11 disable
+set interfaces ge-0/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/12 disable
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 disable
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 disable
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 disable
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 disable
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 disable
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 disable
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 disable
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 disable
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 disable
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 disable
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 disable
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/24 disable
+set interfaces ge-0/0/24 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/25 disable
+set interfaces ge-0/0/25 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/26 disable
+set interfaces ge-0/0/26 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/27 disable
+set interfaces ge-0/0/27 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/28 disable
+set interfaces ge-0/0/28 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/29 disable
+set interfaces ge-0/0/29 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/30 disable
+set interfaces ge-0/0/30 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/31 disable
+set interfaces ge-0/0/31 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/32 disable
+set interfaces ge-0/0/32 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/33 disable
+set interfaces ge-0/0/33 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/34 disable
+set interfaces ge-0/0/34 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/35 unit 0 family inet address 192.168.23.1/30
+set interfaces ge-0/0/36 disable
+set interfaces ge-0/0/36 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/37 disable
+set interfaces ge-0/0/37 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/38 disable
+set interfaces ge-0/0/38 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/39 disable
+set interfaces ge-0/0/39 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/40 disable
+set interfaces ge-0/0/40 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/41 disable
+set interfaces ge-0/0/41 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/42 disable
+set interfaces ge-0/0/42 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/43 description dfffw00-ha-mgmt-internal3
+set interfaces ge-0/0/43 unit 0 family ethernet-switching vlan members v123
+set interfaces ge-0/0/43 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/44 description dfrcore01-gi3-3
+set interfaces ge-0/0/44 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v103
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v29
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v805
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v806
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v809
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v856
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v2138
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v2150
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v2152
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v3005
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v2159
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v2145
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v2129
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v2147
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v172
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v176
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v30
+set interfaces ge-0/0/44 unit 0 family ethernet-switching vlan members v709
+set interfaces ge-0/0/44 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/45 disable
+set interfaces ge-0/0/45 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/46 description dfjcore00-dffw00-internal5
+set interfaces ge-0/0/46 ether-options 802.3ad ae0
+set interfaces ge-0/0/47 description dfjcore01-dffw01-internal5
+set interfaces ge-0/0/47 ether-options 802.3ad ae1
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 description dfffw01-wan2
+set interfaces ge-1/0/0 disable
+set interfaces ge-1/0/0 unit 0 family ethernet-switching vlan members v709
+set interfaces ge-1/0/1 description dfffw01-wan1
+set interfaces ge-1/0/1 disable
+set interfaces ge-1/0/1 unit 0 family ethernet-switching vlan members v30
+set interfaces ge-1/0/2 disable
+set interfaces ge-1/0/3 disable
+set interfaces ge-1/0/4 disable
+set interfaces ge-1/0/5 disable
+set interfaces ge-1/0/6 disable
+set interfaces ge-1/0/7 disable
+set interfaces ge-1/0/8 disable
+set interfaces ge-1/0/9 disable
+set interfaces ge-1/0/10 disable
+set interfaces ge-1/0/11 disable
+set interfaces ge-1/0/12 disable
+set interfaces ge-1/0/13 disable
+set interfaces ge-1/0/14 disable
+set interfaces ge-1/0/15 disable
+set interfaces ge-1/0/16 disable
+set interfaces ge-1/0/17 disable
+set interfaces ge-1/0/18 disable
+set interfaces ge-1/0/19 disable
+set interfaces ge-1/0/20 disable
+set interfaces ge-1/0/21 disable
+set interfaces ge-1/0/22 disable
+set interfaces ge-1/0/23 disable
+set interfaces ge-1/0/24 disable
+set interfaces ge-1/0/25 disable
+set interfaces ge-1/0/26 disable
+set interfaces ge-1/0/27 disable
+set interfaces ge-1/0/28 disable
+set interfaces ge-1/0/29 disable
+set interfaces ge-1/0/30 disable
+set interfaces ge-1/0/31 disable
+set interfaces ge-1/0/32 disable
+set interfaces ge-1/0/33 disable
+set interfaces ge-1/0/34 disable
+set interfaces ge-1/0/35 disable
+set interfaces ge-1/0/36 disable
+set interfaces ge-1/0/37 disable
+set interfaces ge-1/0/38 disable
+set interfaces ge-1/0/39 disable
+set interfaces ge-1/0/40 disable
+set interfaces ge-1/0/41 disable
+set interfaces ge-1/0/42 disable
+set interfaces ge-1/0/43 description dfffw01-ha-mgmt-internal3
+set interfaces ge-1/0/43 unit 0 family ethernet-switching vlan members v123
+set interfaces ge-1/0/43 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/44 description dfrcore02-gi3-3
+set interfaces ge-1/0/44 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v104
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v29
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v805
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v806
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v809
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v856
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v2138
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v2150
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v2152
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v3005
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v2159
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v2145
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v2129
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v2147
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v172
+set interfaces ge-1/0/44 unit 0 family ethernet-switching vlan members v176
+set interfaces ge-1/0/44 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/45 disable
+set interfaces ge-1/0/46 description dfjcore00-dffw00-internal4
+set interfaces ge-1/0/46 ether-options 802.3ad ae0
+set interfaces ge-1/0/47 description dfjcore01-dffw01-internal4
+set interfaces ge-1/0/47 ether-options 802.3ad ae1
+set interfaces ae0 description dfjcore00-dffw00
+set interfaces ae0 native-vlan-id 1
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options link-speed 1g
+set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae0 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ae0 unit 0 family ethernet-switching vlan members v200
+set interfaces ae0 unit 0 family ethernet-switching vlan members v29
+set interfaces ae0 unit 0 family ethernet-switching vlan members v805
+set interfaces ae0 unit 0 family ethernet-switching vlan members v806
+set interfaces ae0 unit 0 family ethernet-switching vlan members v809
+set interfaces ae0 unit 0 family ethernet-switching vlan members v856
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2138
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2150
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2152
+set interfaces ae0 unit 0 family ethernet-switching vlan members v3005
+set interfaces ae0 unit 0 family ethernet-switching vlan members v4
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2159
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2145
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2129
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2147
+set interfaces ae0 unit 0 family ethernet-switching vlan members v172
+set interfaces ae0 unit 0 family ethernet-switching vlan members v176
+set interfaces ae0 unit 0 family ethernet-switching vlan members v198
+set interfaces ae1 description dfjcore01-dffw01
+set interfaces ae1 native-vlan-id 1
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options link-speed 1g
+set interfaces ae1 aggregated-ether-options lacp active
+set interfaces ae1 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ae1 unit 0 family ethernet-switching vlan members v200
+set interfaces ae1 unit 0 family ethernet-switching vlan members v29
+set interfaces ae1 unit 0 family ethernet-switching vlan members v805
+set interfaces ae1 unit 0 family ethernet-switching vlan members v806
+set interfaces ae1 unit 0 family ethernet-switching vlan members v809
+set interfaces ae1 unit 0 family ethernet-switching vlan members v856
+set interfaces ae1 unit 0 family ethernet-switching vlan members v2138
+set interfaces ae1 unit 0 family ethernet-switching vlan members v2150
+set interfaces ae1 unit 0 family ethernet-switching vlan members v2152
+set interfaces ae1 unit 0 family ethernet-switching vlan members v3005
+set interfaces ae1 unit 0 family ethernet-switching vlan members v4
+set interfaces ae1 unit 0 family ethernet-switching vlan members v2159
+set interfaces ae1 unit 0 family ethernet-switching vlan members v2145
+set interfaces ae1 unit 0 family ethernet-switching vlan members v2129
+set interfaces ae1 unit 0 family ethernet-switching vlan members v2147
+set interfaces ae1 unit 0 family ethernet-switching vlan members v172
+set interfaces ae1 unit 0 family ethernet-switching vlan members v176
+set interfaces ae1 unit 0 family ethernet-switching vlan members v198
+set interfaces irb unit 0 family inet
+set interfaces irb unit 103 description dfjcore00-dfrcore01
+set interfaces irb unit 103 family inet address 192.168.15.222/30
+set interfaces irb unit 104 description dfjcore01-dfrcore02
+set interfaces irb unit 104 family inet address 192.168.15.226/30
+set interfaces irb unit 123 description dfffw-ha-mgmt
+set interfaces irb unit 123 family inet address 192.168.123.1/24
+set interfaces irb unit 200 description dfjcore-dfffw
+set interfaces irb unit 200 family inet address 192.168.102.37/30
+set interfaces lo0 description Loopback0
+set interfaces lo0 unit 0 description Loopback-MainInstance
+set interfaces lo0 unit 0 family inet filter input Interface-mgmt-In
+set interfaces lo0 unit 0 family inet address 192.168.146.12/32
+set interfaces me0 disable
+set interfaces vme unit 0 family inet
+set snmp location Deerfield,IL
+set snmp v3 usm local-engine user snmp3user authentication-sha authentication-key "$9$IvBRlKXxd4JG7Nb2gojiO1IcevXxdg4ZSrK8x7VbqmPT69pu1RcyAt7-bs4oZUjkqfn/COBEiktu1IcS24oGk.Fn/AuOTQ9pB1hcrevW-V4oGUHqKM4a"
+set snmp v3 usm local-engine user snmp3user privacy-aes128 privacy-key "$9$dkw4aiHmQ36Yg/CtpB1X7NV24ik.fQFjimT3nCAWLXN-wgoJGjHM8NbY2aJApuBhSMWx7VwMWoJZGiHIEhSvWNdbsgoRh"
+set snmp v3 vacm security-to-group security-model usm security-name snmp3user group view-all
+set snmp v3 vacm access group view-all default-context-prefix security-model usm security-level privacy read-view view-all
+set snmp view view-all oid .1
+set forwarding-options storm-control-profiles default all
+set policy-options policy-statement Filter-OSPF-OUT term DENY-HSRP-vlan219 from route-filter 192.168.198.0/24 exact
+set policy-options policy-statement Filter-OSPF-OUT term DENY-HSRP-vlan219 then reject
+set policy-options policy-statement Filter-OSPF-OUT term DENY-DF-GUESTWLAN from route-filter 192.168.255.0/24 exact
+set policy-options policy-statement Filter-OSPF-OUT term DENY-DF-GUESTWLAN then reject
+set policy-options policy-statement Filter-OSPF-OUT term Advertise-Direct from protocol direct
+set policy-options policy-statement Filter-OSPF-OUT term Advertise-Direct then metric 30
+set policy-options policy-statement Filter-OSPF-OUT term Advertise-Direct then external type 1
+set policy-options policy-statement Filter-OSPF-OUT term Advertise-Direct then accept
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 192.168.129.0/24
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.20.129.0/24
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.25.129.0/24
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.25.150.5/32
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.25.150.6/32
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.20.150.5/32
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.20.150.6/32
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.29.8.0/26
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 192.168.29.3/32
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from source-address 172.20.152.22/32
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from protocol tcp
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from destination-port ssh
+set firewall family inet filter Interface-mgmt-In term Accept-SSH from destination-port 830
+set firewall family inet filter Interface-mgmt-In term Accept-SSH then accept
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP from source-address 172.20.130.59/32
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP from source-address 172.20.130.91/32
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP from source-address 172.20.142.25/32
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP from source-address 172.25.142.25/32
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP from protocol udp
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP from destination-port 161
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP from destination-port 162
+set firewall family inet filter Interface-mgmt-In term Accept-SNMP then accept
+set firewall family inet filter Interface-mgmt-In term Accept-NTP from protocol udp
+set firewall family inet filter Interface-mgmt-In term Accept-NTP from destination-port 123
+set firewall family inet filter Interface-mgmt-In term Accept-NTP then accept
+set firewall family inet filter Interface-mgmt-In term Accept-OSPF from protocol ospf
+set firewall family inet filter Interface-mgmt-In term Accept-OSPF then accept
+set firewall family inet filter Interface-mgmt-In term Accept-ICMP from protocol icmp
+set firewall family inet filter Interface-mgmt-In term Accept-ICMP then accept
+set firewall family inet filter Interface-mgmt-In term Accept-TACACS from source-address 172.20.130.94/32
+set firewall family inet filter Interface-mgmt-In term Accept-TACACS from source-address 192.168.129.39/32
+set firewall family inet filter Interface-mgmt-In term Accept-TACACS from source-address 172.25.130.74/32
+set firewall family inet filter Interface-mgmt-In term Accept-TACACS from protocol tcp
+set firewall family inet filter Interface-mgmt-In term Accept-TACACS from source-port 49
+set firewall family inet filter Interface-mgmt-In term Accept-TACACS then accept
+set firewall family inet filter Interface-mgmt-In term Accept-SCP from protocol tcp
+set firewall family inet filter Interface-mgmt-In term Accept-SCP from source-port 22
+set firewall family inet filter Interface-mgmt-In term Accept-SCP then accept
+set routing-instances DFVRFTEST instance-type virtual-router
+set routing-instances DFVRFTEST interface ge-0/0/35.0
+set routing-options nonstop-routing
+set routing-options static route 192.168.255.0/24 next-hop 192.168.102.38
+set routing-options router-id 192.168.146.12
+set protocols ospf export Filter-OSPF-OUT
+set protocols ospf area 4.4.4.4 interface irb.103
+set protocols ospf area 4.4.4.4 interface irb.104 metric 2
+set protocols ospf area 4.4.4.4 interface irb.200
+set protocols lldp disable
+set protocols lldp interface all disable
+set protocols lldp-med interface all disable
+set protocols igmp-snooping vlan default
+set protocols igmp-snooping vlan all
+set protocols rstp interface all
+set protocols vstp force-version stp
+set protocols vstp interface ge-0/0/44
+set protocols vstp interface ge-1/0/44
+set protocols vstp interface ae0
+set protocols vstp interface ae1
+set protocols vstp vlan 172 bridge-priority 20k
+set protocols vstp vlan 176 bridge-priority 20k
+set protocols vstp vlan 2129 bridge-priority 20k
+set protocols vstp vlan 2138 bridge-priority 20k
+set protocols vstp vlan 2145 bridge-priority 20k
+set protocols vstp vlan 2147 bridge-priority 20k
+set protocols vstp vlan 2150 bridge-priority 20k
+set protocols vstp vlan 2152 bridge-priority 20k
+set protocols vstp vlan 2159 bridge-priority 20k
+set protocols vstp vlan 29 bridge-priority 20k
+set protocols vstp vlan 30 bridge-priority 20k
+set protocols vstp vlan 3005 bridge-priority 20k
+set protocols vstp vlan 4 bridge-priority 20k
+set protocols vstp vlan 709 bridge-priority 20k
+set protocols vstp vlan 805 bridge-priority 20k
+set protocols vstp vlan 806 bridge-priority 20k
+set protocols vstp vlan 809 bridge-priority 20k
+set protocols vstp vlan 856 bridge-priority 20k
+set virtual-chassis preprovisioned
+set virtual-chassis no-split-detection
+set virtual-chassis member 0 role routing-engine
+set virtual-chassis member 0 serial-number PE3716360198
+set virtual-chassis member 1 role routing-engine
+set virtual-chassis member 1 serial-number PE3714100033
+set virtual-chassis vcp-no-hold-time
+set vlans default vlan-id 1
+set vlans default l3-interface irb.0
+set vlans v103 description dfjcore00-dfrcore01
+set vlans v103 vlan-id 103
+set vlans v103 l3-interface irb.103
+set vlans v104 description dfjcore01-dfrcore02
+set vlans v104 vlan-id 104
+set vlans v104 l3-interface irb.104
+set vlans v123 description dfffw-ha-mgmt
+set vlans v123 vlan-id 123
+set vlans v123 l3-interface irb.123
+set vlans v172 description dfwired-new
+set vlans v172 vlan-id 172
+set vlans v176 description dfwireless-new
+set vlans v176 vlan-id 176
+set vlans v198 description dfguest
+set vlans v198 vlan-id 198
+set vlans v198 l3-interface irb.198
+set vlans v200 description dfjcore-dffw
+set vlans v200 vlan-id 200
+set vlans v200 l3-interface irb.200
+set vlans v2129 description vlan129
+set vlans v2129 vlan-id 2129
+set vlans v2138 description custserv
+set vlans v2138 vlan-id 2138
+set vlans v2145 description dfdeva
+set vlans v2145 vlan-id 2145
+set vlans v2147 description phones
+set vlans v2147 vlan-id 2147
+set vlans v2150 description dfctrl
+set vlans v2150 vlan-id 2150
+set vlans v2152 description vlan152
+set vlans v2152 vlan-id 2152
+set vlans v2159 description dfutility
+set vlans v2159 vlan-id 2159
+set vlans v29 description dftestnw
+set vlans v29 vlan-id 29
+set vlans v30 description DF-backup-internet
+set vlans v30 vlan-id 30
+set vlans v3005 description jumpstart
+set vlans v3005 vlan-id 3005
+set vlans v4 description vlan128
+set vlans v4 vlan-id 4
+set vlans v709 description DF-primary-internet
+set vlans v709 vlan-id 709
+set vlans v805 description dfwireless
+set vlans v805 vlan-id 805
+set vlans v806 description dfpda
+set vlans v806 vlan-id 806
+set vlans v809 description dfwlan
+set vlans v809 vlan-id 809
+set vlans v856 description df-pxeboot-winadm
+set vlans v856 vlan-id 856

@@ -1,0 +1,18 @@
+---
+- name: lets try and print "HELLO WORLD"
+  hosts: all
+  gather_facts: False
+  tasks:
+      - name: print hello world
+        debug:
+            msg: Hello world this local hostname name is '{{ansible_host}}' 
+
+      - name: print another hello world
+        debug: 
+            msg: "Hello world my host name is ---> {{ansible_host}}"
+
+
+    
+    
+
+
